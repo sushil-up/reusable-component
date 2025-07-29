@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        domains: ['api.seatsplit.com']
+      },
+      reactStrictMode: false,
+};
 
 export default nextConfig;
