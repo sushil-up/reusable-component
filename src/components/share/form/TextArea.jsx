@@ -8,7 +8,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 
-const TextArea = ({
+const FormTextArea = ({
     name,
     form,
     label,
@@ -46,4 +46,4 @@ const TextArea = ({
     );
 };
 
-export default TextArea;
+export default FormTextArea;

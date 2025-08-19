@@ -15,7 +15,7 @@ export default function AdminLayout({ children }) {
       <div>
         <SidebarProvider>
           <AppSidebar />
-          <SidebarInset className='!bg-white'>
+          {/* <SidebarInset className='!bg-white'> */}
             {/* </header> */}
             <div className='mx-5 my-5 flex flex-1 flex-col gap-2 rounded-sm p-4 mt-20'>
               <Toaster />
@@ -24,7 +24,7 @@ export default function AdminLayout({ children }) {
               </UseContextProvider>
             </div>
             <DashboardFooter />
-          </SidebarInset>
+          {/* </SidebarInset> */}
         </SidebarProvider>
       </div>
     </>
