@@ -60,6 +60,9 @@ export default function Home() {
     <>
       <div className="flex h-screen items-center justify-center">
         <Card className="custom-box-shadow w-full max-w-lg space-y-6 rounded-lg bg-background px-6 py-8">
+         <div className="flex justify-center">
+         <img src="/acewebxlogo.png" className="w-44" />
+         </div>
           <CardTitle className="text-center text-3xl font-bold">
             Login
           </CardTitle>
