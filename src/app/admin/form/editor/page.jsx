@@ -1,5 +1,5 @@
 "use client";
-import { textEditorCode } from "@/components/CodeString";
+import { textEditorCode, textEditorComponent } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
 import TextEditor from "@/components/share/form/TextEditor";
 import { Button } from "@/components/ui/button";
@@ -20,14 +20,19 @@ import { toast } from "sonner";
 const TextEditorRich = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+ const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(textEditorCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(textEditorComponent);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -58,6 +63,7 @@ const TextEditorRich = () => {
                 <TabsList>
                   <TabsTrigger value="preview">Preview</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
+                  <TabsTrigger value="import">Component Call</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="preview">
@@ -90,6 +96,19 @@ const TextEditorRich = () => {
                     </SyntaxHighlighter>
                   </div>
                 </TabsContent>
+                   <TabsContent value="import">
+                                  <Button
+                                    onClick={handleComponentCode}
+                                    className="absolute right-2 top-2 z-10"
+                                    variant="outline"
+                                    size="sm"
+                                  >
+                                    {codeCopi ? "Copied!" : "Copy"}
+                                  </Button>
+                                  <SyntaxHighlighter language="javascript">
+                                      {textEditorComponent}
+                                    </SyntaxHighlighter>
+                                </TabsContent>
               </Tabs>
             </CardContent>
           </Card>

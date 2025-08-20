@@ -9,7 +9,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { FormProvider, useForm } from "react-hook-form";
 import { useState } from "react";
-import { codeStringSelect } from "../CodeString";
+import { codeStringComponent, codeStringSelect } from "../CodeString";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
@@ -19,14 +19,19 @@ import { options } from "../StaticValue";
 const SelectField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+ const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeStringSelect);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(codeStringComponent);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -50,6 +55,7 @@ const SelectField = () => {
             <TabsList>
               <TabsTrigger value="preview">Preview</TabsTrigger>
               <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
             </TabsList>
 
             <TabsContent value="preview">
@@ -82,6 +88,19 @@ const SelectField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
+               <TabsContent value="import">
+                              <Button
+                                onClick={handleComponentCode}
+                                className="absolute right-2 top-2 z-10"
+                                variant="outline"
+                                size="sm"
+                              >
+                                {codeCopi ? "Copied!" : "Copy"}
+                              </Button>
+                              <SyntaxHighlighter language="javascript">
+                                  {codeStringComponent}
+                                </SyntaxHighlighter>
+                            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

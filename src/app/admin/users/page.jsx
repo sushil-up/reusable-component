@@ -8,6 +8,7 @@ import { LengthData, order, ShortBy } from "@/components/StaticValue";
 import DeleteDialogBox from "@/components/Modal/Delete";
 import PageLayout from "@/components/PageTitle";
 import CommonLayout from "@/components/CommanLayout";
+import { useRouter } from "next/navigation";
 
 const AllUsers = () => {
   const [list, setList] = useState([]);
@@ -18,7 +19,7 @@ const AllUsers = () => {
   const [deleteIndexId, setDeleteIndexId] = useState(null);
   const form = useForm();
   const shortBY = form.watch("shortBY");
-
+const router= useRouter()
   const Order = form.watch("order");
   const fetchUserData = async (
     page = 1,
@@ -74,7 +75,9 @@ const AllUsers = () => {
   const deleteHandleModalClose = () => {
     setDeleteOpenModal(false);
   };
-
+const handleEditUser=(row)=>{
+router.push(`/admin/users/${row?.original?.id}`)
+}
   return (
     <>
       <div>
@@ -111,7 +114,7 @@ const AllUsers = () => {
         </div>
         <TableList
           data={list}
-          columns={UserColumn(handleDeleteUser)}
+          columns={UserColumn(handleDeleteUser,handleEditUser)}
           length={limit}
           totalRecord={totalRecord}
           page={page}

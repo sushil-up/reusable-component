@@ -1,5 +1,5 @@
 "use client";
-import { radioButtonCode } from "@/components/CodeString";
+import { radioButtonCode, radioButtonComponent } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
 import RadioButton from "@/components/share/form/RadioButton";
 import { Button } from "@/components/ui/button";
@@ -20,14 +20,19 @@ import { toast } from "sonner";
 const RadioButtonField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+ const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(radioButtonCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(radioButtonComponent);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -58,6 +63,7 @@ const RadioButtonField = () => {
                 <TabsList>
                   <TabsTrigger value="preview">Preview</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
+                  <TabsTrigger value="import">Component Call</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="preview">
@@ -93,6 +99,19 @@ const RadioButtonField = () => {
                     </SyntaxHighlighter>
                   </div>
                 </TabsContent>
+                   <TabsContent value="import">
+                                  <Button
+                                    onClick={handleComponentCode}
+                                    className="absolute right-2 top-2 z-10"
+                                    variant="outline"
+                                    size="sm"
+                                  >
+                                    {codeCopi ? "Copied!" : "Copy"}
+                                  </Button>
+                                  <SyntaxHighlighter language="javascript">
+                                      {radioButtonComponent}
+                                    </SyntaxHighlighter>
+                                </TabsContent>
               </Tabs>
             </CardContent>
           </Card>

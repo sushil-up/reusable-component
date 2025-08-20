@@ -1,5 +1,5 @@
 "use client";
-import { checkboxCode } from "@/components/CodeString";
+import { checkboxCode, checkboxImport } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
 import CheckBox from "@/components/share/form/Checkbox";
 import { Button } from "@/components/ui/button";
@@ -20,14 +20,19 @@ import { toast } from "sonner";
 const CheckBoxField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+  const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(checkboxCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+  const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(checkboxImport);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -58,6 +63,7 @@ const CheckBoxField = () => {
                 <TabsList>
                   <TabsTrigger value="preview">Preview</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
+                  <TabsTrigger value="import">Component Call</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="preview">
@@ -79,7 +85,10 @@ const CheckBoxField = () => {
                           },
                         ]}
                       />
-                      <Button type="submit" className="mt-5 text-white bg-red-800">
+                      <Button
+                        type="submit"
+                        className="mt-5 text-white bg-red-800"
+                      >
                         Submit
                       </Button>
                     </form>
@@ -99,6 +108,19 @@ const CheckBoxField = () => {
                       {checkboxCode}
                     </SyntaxHighlighter>
                   </div>
+                </TabsContent>
+                <TabsContent value="import">
+                  <Button
+                    onClick={handleComponentCode}
+                    className="absolute right-2 top-2 z-10"
+                    variant="outline"
+                    size="sm"
+                  >
+                    {codeCopi ? "Copied!" : "Copy"}
+                  </Button>
+                  <SyntaxHighlighter language="javascript">
+                    {checkboxImport}
+                  </SyntaxHighlighter>
                 </TabsContent>
               </Tabs>
             </CardContent>

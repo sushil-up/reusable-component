@@ -54,7 +54,12 @@ export const codeStringInput = `import {
   }
   
   export default FormInputField`;
-
+export const codeStringInputComponent = `<FormInputField
+                  form={form}
+                  name="name"
+                  label="Name"
+                  placeholder="Enter Name"
+                />`;
 export const codeStringTextArea = `import {
     FormControl,
     FormField,
@@ -105,6 +110,12 @@ const FormTextArea = ({
 
 export default FormTextArea;
 `;
+export const textAreaImport = ` <FormTextArea
+                    form={form}
+                    name="textArea"
+                    placeholder="Enter Address"
+                    label="Text Area"
+                  />`;
 
 export const codeStringSelect = `import { Button } from "@/components/ui/button";
 import {
@@ -215,7 +226,12 @@ export const SelectInput = ({ options: fullOptions, form, name, label }) => {
   );
 };
 `;
-
+export const codeStringComponent = ` <SelectInput
+                    options={options}
+                    form={form}
+                    name="select"
+                    label="Select"
+                  />`;
 export const codeMultiSelect = `
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -335,6 +351,12 @@ const MultiSelectInput = ({
 
 export default MultiSelectInput
 `;
+export const codeMultipleComponent = ` <MultiSelectInput
+                    options={options}
+                    form={form}
+                    name="select"
+                    label="Select"
+                  />`;
 export const datePickerCode = `import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -410,6 +432,12 @@ const DatePicker = ({ name, label, className, placeHolder }) => {
 
 export default DatePicker;
 `;
+export const datePickerComponent = `<DatePicker
+                form={form}
+                name="date"
+                label="Date Picker"
+                placeHolder="Select Date"
+              />`;
 export const dateRangePickerCode = `import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import {
@@ -502,7 +530,11 @@ const FormDatePickerRange = ({
 }
 
 export default FormDatePickerRange`;
-
+export const dateRangeComponent = `<FormDatePickerRange
+                    form={form}
+                    name="dateRange"
+                    label="Date Range Picker"
+                  />`;
 export const radioButtonCode = `import {
   FormControl,
   FormDescription,
@@ -562,8 +594,17 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
 
 export default RadioButton;
 `;
-
-export const checkboxCode =`import { Checkbox } from '@/components/ui/checkbox'
+export const radioButtonComponent = `  <RadioButton
+                        name="radio"
+                        form={form}
+                        label="Rdio Button"
+                        options={[
+                          { label: "Reject", value: "rejected" },
+                          { label: "Approve", value: "approved" },
+                        ]}
+                      />`;
+// CheckBox
+export const checkboxCode = `import { Checkbox } from '@/components/ui/checkbox'
 import {
   FormControl,
   FormField,
@@ -623,10 +664,25 @@ const CheckBox = ({ name, form, items = [], label, className }) => {
 }
 
 export default CheckBox
-`
+`;
+export const checkboxImport = `   <CheckBox
+                name="Discrepancy"
+                label='Discrepancy'
+                className=" !text-base"
+                form={form}
+                items={[
+                  {
+                    value: "true",
+                    label: "True",
+                  },
+                  {
+                    value: "false",
+                    label: "False",
+                  },
+                ]}
+              />`;
 
-
-export const textEditorCode =`"use client";
+export const textEditorCode = `"use client";
 
 import { Controller } from "react-hook-form";
 import {
@@ -683,4 +739,10 @@ const TextEditor = ({
 };
 
 export default TextEditor;
-`
+`;
+export const textEditorComponent = `  <TextEditor
+                        name="content"
+                        form={form}
+                        label="Post Content"
+                        placeholder="Start typing..."
+                      />`;

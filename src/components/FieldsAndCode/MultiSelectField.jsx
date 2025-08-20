@@ -14,19 +14,24 @@ import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { options } from "../StaticValue";
 import MultiSelectInput from "../share/form/MultiSelectInput";
-import { codeMultiSelect } from "../CodeString";
+import { codeMultipleComponent, codeMultiSelect } from "../CodeString";
 
 const MultiSelectField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+ const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeMultiSelect);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(codeMultipleComponent);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -50,6 +55,7 @@ const MultiSelectField = () => {
             <TabsList>
               <TabsTrigger value="preview">Preview</TabsTrigger>
               <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
             </TabsList>
 
             <TabsContent value="preview">
@@ -82,6 +88,19 @@ const MultiSelectField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
+               <TabsContent value="import">
+                              <Button
+                                onClick={handleComponentCode}
+                                className="absolute right-2 top-2 z-10"
+                                variant="outline"
+                                size="sm"
+                              >
+                                {codeCopi ? "Copied!" : "Copy"}
+                              </Button>
+                              <SyntaxHighlighter language="javascript">
+                                  {codeMultipleComponent}
+                                </SyntaxHighlighter>
+                            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

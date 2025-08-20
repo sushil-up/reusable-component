@@ -1,5 +1,5 @@
 "use client";
-import { codeStringInput } from "@/components/CodeString";
+import { codeStringInput, codeStringInputComponent } from "@/components/CodeString";
 import FormInputField from "@/components/share/form/FormInputField";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,14 +19,19 @@ import { toast } from "sonner";
 const TextFieldInput = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
-
+ const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeStringInput);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(codeStringInputComponent);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
@@ -52,6 +57,7 @@ const TextFieldInput = () => {
           <TabsList>
             <TabsTrigger value="preview">Preview</TabsTrigger>
             <TabsTrigger value="code">Code</TabsTrigger>
+            <TabsTrigger value="import">Component Call</TabsTrigger>
           </TabsList>
 
           <TabsContent value="preview">
@@ -84,6 +90,19 @@ const TextFieldInput = () => {
               </SyntaxHighlighter>
             </div>
           </TabsContent>
+             <TabsContent value="import">
+                            <Button
+                              onClick={handleComponentCode}
+                              className="absolute right-2 top-2 z-10"
+                              variant="outline"
+                              size="sm"
+                            >
+                              {codeCopi ? "Copied!" : "Copy"}
+                            </Button>
+                            <SyntaxHighlighter language="javascript">
+                                {codeStringInputComponent}
+                              </SyntaxHighlighter>
+                          </TabsContent>
         </Tabs>
       </CardContent>
     </Card>
