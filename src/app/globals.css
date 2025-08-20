@@ -148,11 +148,66 @@ body .main-menu-item[data-state="open"] {
 .custom-box-shadow {
   box-shadow: 0px 8px 20px #0000001f !important;
 }
-.headerSection{
+.headerSection {
   margin: 0 -2000px;
   padding: 0 2000px;
   position: fixed;
   top: 0;
   z-index: 9;
+}
+.drop-menu {
+  margin-top: 4rem;
+  margin-left: 100%;
+}
+.text-sidebar-primary {
+  color: #b52123 !important;
+}
+.sub-menu-item li a:hover {
+  background: transparent;
+}
 
+.sub-menu-item li:before {
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  left: -13px;
+  background: #898989;
+  content: '';
+  top: 12px;
+  z-index: 9;
+  border-radius: 100%;
+  pointer-events: none;
+}
+.sub-menu-item li:last-child:after {
+  content: '';
+  height: 24px;
+  width: 4px;
+  position: absolute;
+  bottom: -8px;
+  background: #fffeff;
+  z-index: 9;
+  left: -11px;
+}
+a:hover {
+  color: #ca0303 !important;
+}
+.text-color {
+  color: #231f20 !important;
+}
+.main-menu-item:hover {
+  background-color: #ca0303 !important;
+  color: #231f20 !important;
+}
+.main-menu-item:hover .menu-icon {
+  background-color: #605457 !important;
+  color: #fff !important;
+}
+
+.main-menu-item[data-state='open'] {
+  background-color: #ca0303 !important;
+  color: #231f20 !important;
+}
+.main-menu-item[data-state='open'] .menu-icon {
+  background-color: #605457 !important;
+  color: #fff !important;
 }

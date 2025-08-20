@@ -60,7 +60,7 @@ const DateRangePickerField = () => {
                     name="dateRange"
                     label="Date Range Picker"
                   />
-                  <Button type="submit" className="mt-5">
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
                     Submit
                   </Button>
                 </form>

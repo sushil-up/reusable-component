@@ -1,7 +1,7 @@
 "use client";
-import { radioButtonCode } from "@/components/CodeString";
+import { textEditorCode } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
-import RadioButton from "@/components/share/form/RadioButton";
+import TextEditor from "@/components/share/form/TextEditor";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,12 +17,12 @@ import { FormProvider, useForm } from "react-hook-form";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { toast } from "sonner";
 
-const RadioButtonField = () => {
+const TextEditorRich = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(radioButtonCode);
+    await navigator.clipboard.writeText(textEditorCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
@@ -31,7 +31,7 @@ const RadioButtonField = () => {
   const onSubmit = (data) => {
     toast("You submitted the following values", {
       description: (
-        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
+        <pre className="mt-2 max-w-[320px] overflow-x-auto rounded-md bg-neutral-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
@@ -39,7 +39,7 @@ const RadioButtonField = () => {
   };
   return (
     <>
-    <CommonLayout pageTitle={"Radio"} />
+      <CommonLayout pageTitle={"TextEditor"} />
       <Card>
         <CardHeader>
           <CardTitle></CardTitle>
@@ -47,10 +47,10 @@ const RadioButtonField = () => {
         <CardContent>
           <Card className="mt-5">
             <CardHeader>
-              <CardTitle>Radio Button</CardTitle>
+              <CardTitle>TextEditor</CardTitle>
               <CardDescription>
-                A set of checkable buttons—known as radio buttons—where no more
-                than one of the buttons can be checked at a time.
+                A rich text editor that allows users to create and format text
+                with features like bold, italics, links, and more.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -63,16 +63,13 @@ const RadioButtonField = () => {
                 <TabsContent value="preview">
                   <FormProvider {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                      <RadioButton
-                        name="radio"
+                      <TextEditor
+                        name="content"
                         form={form}
-                        label="Rdio Button"
-                        options={[
-                          { label: "Reject", value: "rejected" },
-                          { label: "Approve", value: "approved" },
-                        ]}
+                        label="Post Content"
+                        placeholder="Start typing..."
                       />
-                      <Button type="submit" className="mt-5 text-white bg-red-800">
+                      <Button type="submit" className="mt-14 text-white bg-red-800" >
                         Submit
                       </Button>
                     </form>
@@ -82,14 +79,14 @@ const RadioButtonField = () => {
                   <div className="relative">
                     <Button
                       onClick={handleCopy}
-                      className="absolute right-2 top-2 z-10"
+                      className="absolute right-2 top-2 z-10 "
                       variant="outline"
                       size="sm"
                     >
                       {copied ? "Copied!" : "Copy"}
                     </Button>
                     <SyntaxHighlighter language="javascript">
-                      {radioButtonCode}
+                      {textEditorCode}
                     </SyntaxHighlighter>
                   </div>
                 </TabsContent>
@@ -102,4 +99,4 @@ const RadioButtonField = () => {
   );
 };
 
-export default RadioButtonField;
+export default TextEditorRich;

@@ -26,9 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        
         <Toaster />
         <AuthProvider>
         <main className='min-h-screen'>
+          
           <UseContextProvider>
           {children}
           </UseContextProvider>

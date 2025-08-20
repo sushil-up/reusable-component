@@ -6,4 +6,5 @@ export const routesUrl = {
   datePicker: "/admin/form/datepicker",
   radioButton: "/admin/form/radiobutton",
   checkBox: "/admin/form/checkbox",
+  textEditor:'/admin/form/editor'
 };

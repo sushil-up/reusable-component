@@ -7,7 +7,7 @@ import {
   SidebarRail,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { HomeIcon } from "lucide-react";
+import { FileInput, HomeIcon, List } from "lucide-react";
 import Link from "next/link";
 import NavMain from "./nav-main";
 import { NavUser } from "./nav-user";
@@ -25,6 +25,7 @@ const data = {
     {
       title: "User",
       url: routesUrl.userList,
+      icon: List,
       isActive: true,
       items: [
         {
@@ -37,6 +38,7 @@ const data = {
       title: "Form",
       url: routesUrl.userList,
       isActive: true,
+      icon: FileInput,
       items: [
         {
           title: "Input Fields",
@@ -58,6 +60,10 @@ const data = {
           title: "CheckBox",
           url: routesUrl.checkBox,
         },
+        {
+          title: "Text Editor",
+          url: routesUrl.textEditor,
+        },
       ],
     },
   ],
@@ -66,20 +72,38 @@ const data = {
 export function AppSidebar({ ...props }) {
   const { state } = useSidebar();
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarContent className="theme-bg">
-        <div className="flex items-center gap-3 px-2 justify-center main-logo">
-          <Link href={routesUrl.adminPannel} className="flex-shrink-0">
-            {" "}
-            <img src="/acewebxlogo.png" className="w-44" />{" "}
-          </Link>
-        </div>
-        <NavMain homeItem={data.home} items={data.navMain} />
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser />
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
+    <>
+      <Sidebar collapsible="icon" {...props} >
+        <SidebarContent
+          // className={$theme-bg}
+          className={
+            state === "collapsed"
+              ? "theme-bg sidebarMenuCollapsed main-menu-outer"
+              : "theme-bg main-menu-outer"
+          }
+        >
+          <div className="main-logo border-b[#0A0F15] bg[#0A0F15] flex h-20 items-center justify-center">
+            <Link href="/dashboard" className="flex-shrink-0">
+              {state === "collapsed" ? (
+                <img src="/images/collapse-logo.png" alt="Logo small" />
+              ) : (
+                <img src="/acewebxlogo.png" className="w-56" alt="Logo full" />
+              )}
+            </Link>
+            {/* <p className={cn(
+              'font-semibold transition-all',
+              state === 'collapsed'
+                ? 'w-0 overflow-hidden opacity-0'
+                : 'w-auto opacity-100'
+            )}
+          >
+          </p> */}
+          </div>
+          <NavMain homeItem={data.home} items={data.navMain} />
+        </SidebarContent>
+        <SidebarFooter></SidebarFooter>
+        <SidebarRail />
+      </Sidebar>
+    </>
   );
 }

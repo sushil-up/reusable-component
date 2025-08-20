@@ -31,6 +31,7 @@ const page = () => {
 
   // form.setValue("select", "1");
   const onSubmitData = (data) => {
+    console.log("datadatadata",data)
     // optionally extract plain text if needed
     try {
       const storedData =
@@ -126,16 +127,21 @@ const page = () => {
                 ]}
               />
             </div>
-            <TextEditor
+           
+           <div className="mt-3">
+           <TextEditor
               name="content"
               form={form}
               label="Post Content"
               placeholder="Start typing..."
             />
+           </div>
 
-            <Button type="submit" className="mt-4">
+            <div className="mt-14">
+            <Button type="submit" className='cursor-pointer text-white bg-red-800'>
               Submit
             </Button>
+            </div>
           </form>
         </Form>
       </div>

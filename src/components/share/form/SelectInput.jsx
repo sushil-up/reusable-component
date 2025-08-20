@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
 import React from "react";
 
-export const SelectInput = ({ options: fullOptions, form, name, label }) => {
+export const SelectInput = ({ options: fullOptions,placeholder, form, name, label }) => {
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState("");
 
@@ -62,7 +62,7 @@ export const SelectInput = ({ options: fullOptions, form, name, label }) => {
                 {field.value
                   ? fullOptions.find((option) => option.value === field.value)
                       ?.label
-                  : "Select an option"}
+                  : `${placeholder}`}
                 <ChevronsUpDown className="ml-2 h-4 w-4" />
               </Button>
               </FormControl>

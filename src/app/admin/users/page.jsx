@@ -87,7 +87,7 @@ const AllUsers = () => {
                 name="limit"
                 className="h-10 w-28"
                 placeholder="Select Limit"
-                label="Limit"
+                // label="Limit"
                 options={LengthData}
               />
               <SelectInput
@@ -95,7 +95,7 @@ const AllUsers = () => {
                 name="shortBY"
                 className="h-10 w-28"
                 placeholder="Short By"
-                label="Short By"
+                // label="Short By"
                 options={ShortBy}
               />
               <SelectInput
@@ -103,7 +103,7 @@ const AllUsers = () => {
                 name="order"
                 className="h-10 w-28"
                 placeholder="Order"
-                label="Order "
+                // label="Order "
                 options={order}
               />
             </div>

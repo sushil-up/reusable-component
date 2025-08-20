@@ -1,30 +1,34 @@
-'use client'
+"use client";
 
-import { Controller } from 'react-hook-form'
+import { Controller } from "react-hook-form";
 import {
   FormDescription,
   FormItem,
   FormLabel,
   FormMessage,
   FormControl,
-} from '@/components/ui/form'
-import { useEffect, useState } from 'react'
-import MyLexicalEditor from '@/components/LexicalTextEditor'
+} from "@/components/ui/form";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import ReactQuill to avoid SSR issues
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
+import "react-quill-new/dist/quill.snow.css";
 
 const TextEditor = ({
   name,
   form,
   label,
-  className = '',
-  placeholder = '',
+  className = "",
+  placeholder = "",
 }) => {
-  const [isClient, setIsClient] = useState(false)
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+  }, []);
 
-  if (!isClient) return null
+  if (!isClient) return null;
 
   return (
     <FormItem className={className}>
@@ -33,10 +37,11 @@ const TextEditor = ({
         <Controller
           name={name}
           control={form.control}
-          defaultValue={null}
+          defaultValue=""
           render={({ field }) => (
-            <MyLexicalEditor
-              value={field.value}
+            <ReactQuill
+              theme="snow"
+              value={field.value || ""}
               onChange={field.onChange}
               placeholder={placeholder}
             />
@@ -46,7 +51,7 @@ const TextEditor = ({
       <FormDescription />
       <FormMessage />
     </FormItem>
-  )
-}
+  );
+};
 
-export default TextEditor
+export default TextEditor;

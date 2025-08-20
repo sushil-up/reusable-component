@@ -60,7 +60,7 @@ const DatePickerField = () => {
                 label="Date Picker"
                 placeHolder="Select Date"
               />
-                  <Button type="submit" className="mt-5">
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
                     Submit
                   </Button>
                 </form>
