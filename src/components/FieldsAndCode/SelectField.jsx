@@ -19,14 +19,23 @@ import { options } from "../StaticValue";
 const SelectField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [multiSelectCodeInstall, setMultiSelectCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add select`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setMultiSelectCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setMultiSelectCodeInstall(false), 2000);
+  };
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeStringSelect);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(codeStringComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
@@ -49,7 +58,21 @@ const SelectField = () => {
           <CardDescription>
             Displays a form select or a component that looks like a select.
           </CardDescription>
-          Command: npx shadcn@latest add select
+          Command
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {multiSelectCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
+          npx shadcn@latest add select
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -67,7 +90,7 @@ const SelectField = () => {
                     form={form}
                     name="select"
                     label="Select"
-                    placeholder='Select an option'
+                    placeholder="Select an option"
                   />
                   <Button type="submit" className="mt-5 text-white bg-red-800">
                     Submit
@@ -90,19 +113,21 @@ const SelectField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
-               <TabsContent value="import">
-                              <Button
-                                onClick={handleComponentCode}
-                                className="absolute right-2 top-2 z-10"
-                                variant="outline"
-                                size="sm"
-                              >
-                                {codeCopi ? "Copied!" : "Copy"}
-                              </Button>
-                              <SyntaxHighlighter language="javascript">
-                                  {codeStringComponent}
-                                </SyntaxHighlighter>
-                            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {codeStringComponent}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

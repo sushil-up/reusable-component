@@ -18,18 +18,26 @@ import { datePickerCode, datePickerComponent } from "../CodeString";
 const DatePickerField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [datePickerCodeInstall, setDatePickerCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add calendar`;
   const handleCopy = async () => {
     await navigator.clipboard.writeText(datePickerCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(datePickerComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
+  };
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setDatePickerCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setDatePickerCodeInstall(false), 2000);
   };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
@@ -46,9 +54,23 @@ const DatePickerField = () => {
         <CardHeader>
           <CardTitle>Date Picker Field</CardTitle>
           <CardDescription>
-            Displays a form datepicker or a component that looks like a datepicker.
+            Displays a form datepicker or a component that looks like a
+            datepicker.
           </CardDescription>
-          Command:  npx shadcn@latest add calendar
+          Command
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {datePickerCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -61,12 +83,12 @@ const DatePickerField = () => {
             <TabsContent value="preview">
               <FormProvider {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                <DatePicker
-                form={form}
-                name="date"
-                label="Date Picker"
-                placeHolder="Select Date"
-              />
+                  <DatePicker
+                    form={form}
+                    name="date"
+                    label="Date Picker"
+                    placeHolder="Select Date"
+                  />
                   <Button type="submit" className="mt-5 text-white bg-red-800">
                     Submit
                   </Button>
@@ -88,19 +110,21 @@ const DatePickerField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
-               <TabsContent value="import">
-                              <Button
-                                onClick={handleComponentCode}
-                                className="absolute right-2 top-2 z-10"
-                                variant="outline"
-                                size="sm"
-                              >
-                                {codeCopi ? "Copied!" : "Copy"}
-                              </Button>
-                              <SyntaxHighlighter language="javascript">
-                                  {datePickerComponent}
-                                </SyntaxHighlighter>
-                            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {datePickerComponent}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

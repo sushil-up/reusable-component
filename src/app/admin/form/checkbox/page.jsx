@@ -21,6 +21,8 @@ const CheckBoxField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
+  const [checkboxCodeInstall, setCheckboxCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add checkbox`;
   const handleCopy = async () => {
     await navigator.clipboard.writeText(checkboxCode);
     setCopied(true);
@@ -31,7 +33,13 @@ const CheckBoxField = () => {
     await navigator.clipboard.writeText(checkboxImport);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCodeCopy(false), 2000);
+  };
+  const handleCommandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setCheckboxCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCheckboxCodeInstall(false), 2000);
   };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
@@ -52,7 +60,20 @@ const CheckBoxField = () => {
             A control that allows the user to toggle between checked and not
             checked.
           </CardDescription>
-          Command: npx shadcn@latest add checkbox
+          Command
+          <div className="relative items-center">
+            <Button
+              onClick={handleCommandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {checkboxCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -103,17 +124,19 @@ const CheckBoxField = () => {
               </div>
             </TabsContent>
             <TabsContent value="import">
-              <Button
-                onClick={handleComponentCode}
-                className="absolute right-2 top-2 z-10"
-                variant="outline"
-                size="sm"
-              >
-                {codeCopi ? "Copied!" : "Copy"}
-              </Button>
-              <SyntaxHighlighter language="javascript">
-                {checkboxImport}
-              </SyntaxHighlighter>
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {checkboxImport}
+                </SyntaxHighlighter>
+              </div>
             </TabsContent>
           </Tabs>
         </CardContent>

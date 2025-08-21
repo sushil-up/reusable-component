@@ -21,6 +21,15 @@ const TextEditorRich = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
+  const [textEditorCodeInstall, setTextEditorCodeInstall] = useState(false);
+  const commandInstall = `npm install react-quill-new`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setTextEditorCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setTextEditorCodeInstall(false), 2000);
+  }
   const handleCopy = async () => {
     await navigator.clipboard.writeText(textEditorCode);
     setCopied(true);
@@ -52,7 +61,21 @@ const TextEditorRich = () => {
             A rich text editor that allows users to create and format text with
             features like bold, italics, links, and more.
           </CardDescription>
-          Command: npm install react-quill-new
+          Command
+     <div className="relative">
+     <Button
+                onClick={handleCommmandCode}
+                className="absolute right-2 top-1 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {textEditorCodeInstall ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {commandInstall}
+              </SyntaxHighlighter>
+     </div>
+           
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -93,7 +116,8 @@ const TextEditorRich = () => {
               </div>
             </TabsContent>
             <TabsContent value="import">
-              <Button
+            <div className="relative">
+            <Button
                 onClick={handleComponentCode}
                 className="absolute right-2 top-2 z-10"
                 variant="outline"
@@ -104,6 +128,7 @@ const TextEditorRich = () => {
               <SyntaxHighlighter language="javascript">
                 {textEditorComponent}
               </SyntaxHighlighter>
+            </div>
             </TabsContent>
           </Tabs>
         </CardContent>

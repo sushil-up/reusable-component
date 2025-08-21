@@ -23,6 +23,15 @@ const TextFieldInput = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
+  const [inputCodeInstall, setInputCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add input`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setInputCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setInputCodeInstall(false), 2000);
+  };
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeStringInput);
     setCopied(true);
@@ -53,7 +62,20 @@ const TextFieldInput = () => {
           Displays a form input field or a component that looks like an input
           field.
         </CardDescription>
-        Command: npx shadcn@latest add input
+        Command
+        <div className="relative">
+          <Button
+            onClick={handleCommmandCode}
+            className="absolute right-2 top-1 z-10"
+            variant="outline"
+            size="sm"
+          >
+            {codeCopi ? "Copied!" : "Copy"}
+          </Button>
+          <SyntaxHighlighter language="javascript">
+            {commandInstall}
+          </SyntaxHighlighter>
+        </div>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="preview">
@@ -94,17 +116,19 @@ const TextFieldInput = () => {
             </div>
           </TabsContent>
           <TabsContent value="import">
-            <Button
-              onClick={handleComponentCode}
-              className="absolute right-2 top-2 z-10"
-              variant="outline"
-              size="sm"
-            >
-              {codeCopi ? "Copied!" : "Copy"}
-            </Button>
-            <SyntaxHighlighter language="javascript">
-              {codeStringInputComponent}
-            </SyntaxHighlighter>
+            <div className="relative">
+              <Button
+                onClick={handleComponentCode}
+                className="absolute right-2 top-2 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {codeCopi ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {codeStringInputComponent}
+              </SyntaxHighlighter>
+            </div>
           </TabsContent>
         </Tabs>
       </CardContent>

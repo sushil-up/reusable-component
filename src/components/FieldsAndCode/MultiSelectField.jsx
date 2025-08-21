@@ -19,14 +19,23 @@ import { codeMultipleComponent, codeMultiSelect } from "../CodeString";
 const MultiSelectField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [multiSelectCodeInstall, setMultiSelectCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add select`;
+  
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setMultiSelectCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setMultiSelectCodeInstall(false), 2000);
+  }
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeMultiSelect);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(codeMultipleComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
@@ -47,9 +56,24 @@ const MultiSelectField = () => {
         <CardHeader>
           <CardTitle>MultiSelect Field</CardTitle>
           <CardDescription>
-            Displays a form multiselect or a component that looks like a multiselect.
+            Displays a form multiselect or a component that looks like a
+            multiselect.
           </CardDescription>
-          Command: npx shadcn@latest add select
+          Command
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {multiSelectCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
+          
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -89,19 +113,21 @@ const MultiSelectField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
-               <TabsContent value="import">
-                              <Button
-                                onClick={handleComponentCode}
-                                className="absolute right-2 top-2 z-10"
-                                variant="outline"
-                                size="sm"
-                              >
-                                {codeCopi ? "Copied!" : "Copy"}
-                              </Button>
-                              <SyntaxHighlighter language="javascript">
-                                  {codeMultipleComponent}
-                                </SyntaxHighlighter>
-                            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {codeMultipleComponent}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

@@ -28,6 +28,15 @@ import { toast } from "sonner";
 const ExampleFormFields = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
+  const [exampleCodeInstall, setExampleCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add form`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setExampleCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setExampleCodeInstall(false), 2000);
+  };
   const handleCopy = async () => {
     await navigator.clipboard.writeText(exampleForm);
     setCopied(true);
@@ -55,7 +64,20 @@ const ExampleFormFields = () => {
             radio buttons, and a rich text editor. Switch between preview and
             code to explore both functionality and implementation.
           </CardDescription>
-          Command: npx shadcn@latest add form
+          Command
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10 "
+              variant="outline"
+              size="sm"
+            >
+              {exampleCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

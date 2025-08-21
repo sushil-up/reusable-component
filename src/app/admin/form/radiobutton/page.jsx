@@ -21,6 +21,15 @@ const RadioButtonField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
+  const [radioButtonCodeInstall, setRadioButtonCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add radio-group`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setRadioButtonCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setRadioButtonCodeInstall(false), 2000);
+  };
   const handleCopy = async () => {
     await navigator.clipboard.writeText(radioButtonCode);
     setCopied(true);
@@ -52,7 +61,20 @@ const RadioButtonField = () => {
             A set of checkable buttons—known as radio buttons—where no more than
             one of the buttons can be checked at a time.
           </CardDescription>
-          Command: npx shadcn@latest add radio-group
+          Command
+          <div className="relative">
+             <Button
+                onClick={handleCommmandCode}
+                className="absolute right-2 top-1 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {radioButtonCodeInstall ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {commandInstall}
+              </SyntaxHighlighter>
+             </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -96,17 +118,19 @@ const RadioButtonField = () => {
               </div>
             </TabsContent>
             <TabsContent value="import">
-              <Button
-                onClick={handleComponentCode}
-                className="absolute right-2 top-2 z-10"
-                variant="outline"
-                size="sm"
-              >
-                {codeCopi ? "Copied!" : "Copy"}
-              </Button>
-              <SyntaxHighlighter language="javascript">
-                {radioButtonComponent}
-              </SyntaxHighlighter>
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {radioButtonComponent}
+                </SyntaxHighlighter>
+              </div>
             </TabsContent>
           </Tabs>
         </CardContent>

@@ -18,14 +18,23 @@ import { toast } from "sonner";
 const TextAreaInput = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [textAreaCodeInstall, setTextAreaCodeInstall] = useState(false);
+  const commandInstall = `npx shadcn@latest add textarea`;
+
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setTextAreaCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setTextAreaCodeInstall(false), 2000);
+  }
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeStringTextArea);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(textAreaImport);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
@@ -48,7 +57,22 @@ const TextAreaInput = () => {
           <CardDescription>
             Displays a form textarea or a component that looks like a textarea.
           </CardDescription>
-          Command: npx shadcn@latest add textarea
+          Command
+          <div className="relative">
+                <Button
+                  onClick={handleCommmandCode}
+                  className="absolute right-2 top-1 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {textAreaCodeInstall ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {commandInstall}
+                </SyntaxHighlighter>
+              </div>
+          
+           
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -88,19 +112,21 @@ const TextAreaInput = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
-               <TabsContent value="import">
-                              <Button
-                                onClick={handleComponentCode}
-                                className="absolute right-2 top-2 z-10"
-                                variant="outline"
-                                size="sm"
-                              >
-                                {codeCopi ? "Copied!" : "Copy"}
-                              </Button>
-                              <SyntaxHighlighter language="javascript">
-                                  {textAreaImport}
-                                </SyntaxHighlighter>
-                            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {textAreaImport}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>

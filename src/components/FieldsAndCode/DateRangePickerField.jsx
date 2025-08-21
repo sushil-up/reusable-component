@@ -18,18 +18,26 @@ import { dateRangeComponent, dateRangePickerCode } from "../CodeString";
 const DateRangePickerField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [datePickerCodeInstall, setDatePickerCodeInstall] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(dateRangePickerCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(dateRangeComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
+  };
+  const commandInstall = `npx shadcn@latest add calendar`;
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setDatePickerCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setDatePickerCodeInstall(false), 2000);
   };
   const onSubmit = (data) => {
     toast("You submitted the following values", {
@@ -49,7 +57,20 @@ const DateRangePickerField = () => {
             Displays a form daterangepicker or a component that looks like a
             daterangepicker.
           </CardDescription>
-          Command:  npx shadcn@latest add calendar
+          Command:
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {datePickerCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -88,19 +109,21 @@ const DateRangePickerField = () => {
                 </SyntaxHighlighter>
               </div>
             </TabsContent>
-               <TabsContent value="import">
-                              <Button
-                                onClick={handleComponentCode}
-                                className="absolute right-2 top-2 z-10"
-                                variant="outline"
-                                size="sm"
-                              >
-                                {codeCopi ? "Copied!" : "Copy"}
-                              </Button>
-                              <SyntaxHighlighter language="javascript">
-                                  {dateRangeComponent}
-                                </SyntaxHighlighter>
-                            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {dateRangeComponent}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>
