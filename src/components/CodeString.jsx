@@ -535,7 +535,8 @@ export const dateRangeComponent = `<FormDatePickerRange
                     name="dateRange"
                     label="Date Range Picker"
                   />`;
-export const radioButtonCode = `import {
+export const radioButtonCode = `
+import {
   FormControl,
   FormDescription,
   FormField,
@@ -556,7 +557,7 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl
-              className='!flex-nowrap !flex-row !mb-5 gap-4 radio-collunm'
+              className={'!flex-nowrap !flex-row  gap-4 radio-collunm'}
             >
               <RadioGroup
                 onValueChange={(value) => {
@@ -574,7 +575,7 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
                     <FormControl>
                       <RadioGroupItem value={option.value} />
                     </FormControl>
-                    <FormLabel className="font-normal !ml-2">
+                    <FormLabel className="font-normal ">
                       {option.label}
                     </FormLabel>
                   </FormItem>
@@ -593,6 +594,7 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
 };
 
 export default RadioButton;
+
 `;
 export const radioButtonComponent = `  <RadioButton
                         name="radio"

@@ -37,7 +37,7 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
                     <FormControl>
                       <RadioGroupItem value={option.value} />
                     </FormControl>
-                    <FormLabel className="font-normal !ml-2">
+                    <FormLabel className="font-normal ">
                       {option.label}
                     </FormLabel>
                   </FormItem>

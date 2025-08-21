@@ -90,22 +90,7 @@ const ExampleFormFields = () => {
               <FormProvider {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                   <div className="grid grid-cols-2 gap-4">
-                    <CheckBox
-                      name="Discrepancy"
-                      label="Discrepancy"
-                      className=" !text-base"
-                      form={form}
-                      items={[
-                        {
-                          value: "true",
-                          label: "True",
-                        },
-                        {
-                          value: "false",
-                          label: "False",
-                        },
-                      ]}
-                    />
+
                     <DatePicker
                       form={form}
                       name="date"
@@ -129,15 +114,7 @@ const ExampleFormFields = () => {
                       name="select"
                       label="Select"
                     />
-                    <RadioButton
-                      name="radio"
-                      form={form}
-                      label="Radio Button"
-                      options={[
-                        { label: "Reject", value: "rejected" },
-                        { label: "Approve", value: "approved" },
-                      ]}
-                    />
+
                     <SelectInput
                       options={options}
                       form={form}
@@ -150,6 +127,31 @@ const ExampleFormFields = () => {
                       name="textArea"
                       placeholder="Enter Address"
                       label="Text Area"
+                    />
+                    <RadioButton
+                      name="radio"
+                      form={form}
+                      label="Radio Button"
+                      options={[
+                        { label: "Reject", value: "rejected" },
+                        { label: "Approve", value: "approved" },
+                      ]}
+                    />
+                    <CheckBox
+                      name="Discrepancy"
+                      label="Discrepancy"
+                      className=" !text-base"
+                      form={form}
+                      items={[
+                        {
+                          value: "true",
+                          label: "True",
+                        },
+                        {
+                          value: "false",
+                          label: "False",
+                        },
+                      ]}
                     />
                   </div>
                   <TextEditor
