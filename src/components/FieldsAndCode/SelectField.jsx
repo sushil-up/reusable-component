@@ -49,6 +49,7 @@ const SelectField = () => {
           <CardDescription>
             Displays a form select or a component that looks like a select.
           </CardDescription>
+          Command: npx shadcn@latest add select
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">
@@ -66,6 +67,7 @@ const SelectField = () => {
                     form={form}
                     name="select"
                     label="Select"
+                    placeholder='Select an option'
                   />
                   <Button type="submit" className="mt-5 text-white bg-red-800">
                     Submit

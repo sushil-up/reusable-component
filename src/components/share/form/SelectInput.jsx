@@ -55,7 +55,7 @@ export const SelectInput = ({ options: fullOptions,placeholder, form, name, labe
                 role="combobox"
                 aria-expanded={open}
                 className={cn(
-                  "w-full justify-between",
+                  "w-full justify-between form-control-height",
                   !field.value && "text-muted-foreground"
                 )}
               >

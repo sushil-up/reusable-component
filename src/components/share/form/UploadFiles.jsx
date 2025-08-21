@@ -65,7 +65,7 @@ import {
                           : ''
                       }
                       placeholder='No file chosen'
-                      className='w-full cursor-default rounded border px-3 py-2 text-sm text-gray-600 bg-gray-100'
+                      className='form-control-height w-full cursor-default rounded border px-3 py-2 text-sm text-gray-600 bg-gray-100'
                     />
                   </div>
                   <label htmlFor={name}>

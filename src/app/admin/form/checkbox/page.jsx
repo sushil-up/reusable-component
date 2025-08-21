@@ -45,86 +45,77 @@ const CheckBoxField = () => {
   return (
     <>
       <CommonLayout pageTitle={"Checkbox"} />
-      <Card>
+      <Card className="mt-5">
         <CardHeader>
-          <CardTitle></CardTitle>
+          <CardTitle>Checkbox</CardTitle>
+          <CardDescription>
+            A control that allows the user to toggle between checked and not
+            checked.
+          </CardDescription>
+          Command: npx shadcn@latest add checkbox
         </CardHeader>
         <CardContent>
-          <Card className="mt-5">
-            <CardHeader>
-              <CardTitle>Checkbox</CardTitle>
-              <CardDescription>
-                A control that allows the user to toggle between checked and not
-                checked.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="preview">
-                <TabsList>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                  <TabsTrigger value="code">Code</TabsTrigger>
-                  <TabsTrigger value="import">Component Call</TabsTrigger>
-                </TabsList>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
+            </TabsList>
 
-                <TabsContent value="preview">
-                  <FormProvider {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                      <CheckBox
-                        name="Discrepancy"
-                        label="Discrepancy"
-                        className=" !text-base"
-                        form={form}
-                        items={[
-                          {
-                            value: "true",
-                            label: "True",
-                          },
-                          {
-                            value: "false",
-                            label: "False",
-                          },
-                        ]}
-                      />
-                      <Button
-                        type="submit"
-                        className="mt-5 text-white bg-red-800"
-                      >
-                        Submit
-                      </Button>
-                    </form>
-                  </FormProvider>
-                </TabsContent>
-                <TabsContent value="code">
-                  <div className="relative">
-                    <Button
-                      onClick={handleCopy}
-                      className="absolute right-2 top-2 z-10"
-                      variant="outline"
-                      size="sm"
-                    >
-                      {copied ? "Copied!" : "Copy"}
-                    </Button>
-                    <SyntaxHighlighter language="javascript">
-                      {checkboxCode}
-                    </SyntaxHighlighter>
-                  </div>
-                </TabsContent>
-                <TabsContent value="import">
-                  <Button
-                    onClick={handleComponentCode}
-                    className="absolute right-2 top-2 z-10"
-                    variant="outline"
-                    size="sm"
-                  >
-                    {codeCopi ? "Copied!" : "Copy"}
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <CheckBox
+                    name="Discrepancy"
+                    label="Discrepancy"
+                    className=" !text-base"
+                    form={form}
+                    items={[
+                      {
+                        value: "true",
+                        label: "True",
+                      },
+                      {
+                        value: "false",
+                        label: "False",
+                      },
+                    ]}
+                  />
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
+                    Submit
                   </Button>
-                  <SyntaxHighlighter language="javascript">
-                    {checkboxImport}
-                  </SyntaxHighlighter>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {checkboxCode}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="import">
+              <Button
+                onClick={handleComponentCode}
+                className="absolute right-2 top-2 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {codeCopi ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {checkboxImport}
+              </SyntaxHighlighter>
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
     </>

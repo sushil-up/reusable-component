@@ -20,14 +20,14 @@ import { toast } from "sonner";
 const RadioButtonField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(radioButtonCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(radioButtonComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
@@ -44,77 +44,71 @@ const RadioButtonField = () => {
   };
   return (
     <>
-    <CommonLayout pageTitle={"Radio"} />
-      <Card>
+      <CommonLayout pageTitle={"Radio"} />
+      <Card className="mt-5">
         <CardHeader>
-          <CardTitle></CardTitle>
+          <CardTitle>Radio Button</CardTitle>
+          <CardDescription>
+            A set of checkable buttons—known as radio buttons—where no more than
+            one of the buttons can be checked at a time.
+          </CardDescription>
+          Command: npx shadcn@latest add radio-group
         </CardHeader>
         <CardContent>
-          <Card className="mt-5">
-            <CardHeader>
-              <CardTitle>Radio Button</CardTitle>
-              <CardDescription>
-                A set of checkable buttons—known as radio buttons—where no more
-                than one of the buttons can be checked at a time.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="preview">
-                <TabsList>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                  <TabsTrigger value="code">Code</TabsTrigger>
-                  <TabsTrigger value="import">Component Call</TabsTrigger>
-                </TabsList>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
+            </TabsList>
 
-                <TabsContent value="preview">
-                  <FormProvider {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                      <RadioButton
-                        name="radio"
-                        form={form}
-                        label="Rdio Button"
-                        options={[
-                          { label: "Reject", value: "rejected" },
-                          { label: "Approve", value: "approved" },
-                        ]}
-                      />
-                      <Button type="submit" className="mt-5 text-white bg-red-800">
-                        Submit
-                      </Button>
-                    </form>
-                  </FormProvider>
-                </TabsContent>
-                <TabsContent value="code">
-                  <div className="relative">
-                    <Button
-                      onClick={handleCopy}
-                      className="absolute right-2 top-2 z-10"
-                      variant="outline"
-                      size="sm"
-                    >
-                      {copied ? "Copied!" : "Copy"}
-                    </Button>
-                    <SyntaxHighlighter language="javascript">
-                      {radioButtonCode}
-                    </SyntaxHighlighter>
-                  </div>
-                </TabsContent>
-                   <TabsContent value="import">
-                                  <Button
-                                    onClick={handleComponentCode}
-                                    className="absolute right-2 top-2 z-10"
-                                    variant="outline"
-                                    size="sm"
-                                  >
-                                    {codeCopi ? "Copied!" : "Copy"}
-                                  </Button>
-                                  <SyntaxHighlighter language="javascript">
-                                      {radioButtonComponent}
-                                    </SyntaxHighlighter>
-                                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <RadioButton
+                    name="radio"
+                    form={form}
+                    label="Radio Button"
+                    options={[
+                      { label: "Reject", value: "rejected" },
+                      { label: "Approve", value: "approved" },
+                    ]}
+                  />
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
+                    Submit
+                  </Button>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {radioButtonCode}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="import">
+              <Button
+                onClick={handleComponentCode}
+                className="absolute right-2 top-2 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {codeCopi ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {radioButtonComponent}
+              </SyntaxHighlighter>
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
     </>

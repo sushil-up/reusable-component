@@ -49,6 +49,7 @@ const MultiSelectField = () => {
           <CardDescription>
             Displays a form multiselect or a component that looks like a multiselect.
           </CardDescription>
+          Command: npx shadcn@latest add select
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

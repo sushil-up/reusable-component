@@ -42,7 +42,7 @@ const MultiSelectInput = ({
             <Button
               variant='outline'
               className={cn(
-                'border-color-grey h-12 w-full justify-between whitespace-normal rounded text-left font-normal !shadow-none',
+                'form-control-height border-color-grey h-12 w-full justify-between whitespace-normal rounded text-left font-normal !shadow-none',
                 fieldState.invalid && 'border-red-500',
                 className
               )}

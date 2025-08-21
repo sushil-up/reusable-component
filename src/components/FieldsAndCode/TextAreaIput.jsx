@@ -48,6 +48,7 @@ const TextAreaInput = () => {
           <CardDescription>
             Displays a form textarea or a component that looks like a textarea.
           </CardDescription>
+          Command: npx shadcn@latest add textarea
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

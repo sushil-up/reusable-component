@@ -45,76 +45,67 @@ const TextEditorRich = () => {
   return (
     <>
       <CommonLayout pageTitle={"TextEditor"} />
-      <Card>
+      <Card className="mt-5">
         <CardHeader>
-          <CardTitle></CardTitle>
+          <CardTitle>TextEditor</CardTitle>
+          <CardDescription>
+            A rich text editor that allows users to create and format text with
+            features like bold, italics, links, and more.
+          </CardDescription>
+          Command: npm install react-quill-new
         </CardHeader>
         <CardContent>
-          <Card className="mt-5">
-            <CardHeader>
-              <CardTitle>TextEditor</CardTitle>
-              <CardDescription>
-                A rich text editor that allows users to create and format text
-                with features like bold, italics, links, and more.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="preview">
-                <TabsList>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                  <TabsTrigger value="code">Code</TabsTrigger>
-                  <TabsTrigger value="import">Component Call</TabsTrigger>
-                </TabsList>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
+            </TabsList>
 
-                <TabsContent value="preview">
-                  <FormProvider {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                      <TextEditor
-                        name="content"
-                        form={form}
-                        label="Post Content"
-                        placeholder="Start typing..."
-                      />
-                      <Button
-                        type="submit"
-                        className="mt-14 text-white bg-red-800"
-                      >
-                        Submit
-                      </Button>
-                    </form>
-                  </FormProvider>
-                </TabsContent>
-                <TabsContent value="code">
-                  <div className="relative">
-                    <Button
-                      onClick={handleCopy}
-                      className="absolute right-2 top-2 z-10 "
-                      variant="outline"
-                      size="sm"
-                    >
-                      {copied ? "Copied!" : "Copy"}
-                    </Button>
-                    <SyntaxHighlighter language="javascript">
-                      {textEditorCode}
-                    </SyntaxHighlighter>
-                  </div>
-                </TabsContent>
-                <TabsContent value="import">
-                  <Button
-                    onClick={handleComponentCode}
-                    className="absolute right-2 top-2 z-10"
-                    variant="outline"
-                    size="sm"
-                  >
-                    {codeCopi ? "Copied!" : "Copy"}
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <TextEditor
+                    name="content"
+                    form={form}
+                    label="Post Content"
+                    placeholder="Start typing..."
+                  />
+                  <Button type="submit" className="mt-14 text-white bg-red-800">
+                    Submit
                   </Button>
-                  <SyntaxHighlighter language="javascript">
-                    {textEditorComponent}
-                  </SyntaxHighlighter>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10 "
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {textEditorCode}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="import">
+              <Button
+                onClick={handleComponentCode}
+                className="absolute right-2 top-2 z-10"
+                variant="outline"
+                size="sm"
+              >
+                {codeCopi ? "Copied!" : "Copy"}
+              </Button>
+              <SyntaxHighlighter language="javascript">
+                {textEditorComponent}
+              </SyntaxHighlighter>
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
     </>

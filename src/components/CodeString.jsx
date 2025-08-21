@@ -597,7 +597,7 @@ export default RadioButton;
 export const radioButtonComponent = `  <RadioButton
                         name="radio"
                         form={form}
-                        label="Rdio Button"
+                        label="Radio Button"
                         options={[
                           { label: "Reject", value: "rejected" },
                           { label: "Approve", value: "approved" },
@@ -791,7 +791,7 @@ export const exampleForm = `
                         <RadioButton
                           name="radio"
                           form={form}
-                          label="Rdio Button"
+                          label="Radio Button"
                           options={[
                             { label: "Reject", value: "rejected" },
                             { label: "Approve", value: "approved" },

@@ -211,3 +211,7 @@ a:hover {
   background-color: #605457 !important;
   color: #fff !important;
 }
+/* global.css (or your Tailwind config layer) */
+.form-control-height {
+  @apply h-12 rounded-md border border-gray-300 shadow-none;
+}

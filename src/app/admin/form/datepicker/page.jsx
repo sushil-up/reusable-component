@@ -9,15 +9,8 @@ const DatePicker = () => {
   return (
     <>
     <CommonLayout pageTitle={"Date Picker"} />
-      <Card>
-        <CardHeader>
-          <CardTitle>Date Picker</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <DatePickerField />
-          <DateRangePickerField />
-        </CardContent>
-      </Card>
+    <DatePickerField />
+    <DateRangePickerField />
     </>
   );
 };

@@ -35,7 +35,7 @@ const InputField = ({
                 placeholder={placeholder}
                 disabled={disabled}
                 type={type}
-                className={`${className} ${
+                className={`form-control-height${className} ${
                   fieldState.error ? "border-red-500" : ""
                 }`}
               />

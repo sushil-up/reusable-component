@@ -46,127 +46,118 @@ const ExampleFormFields = () => {
   return (
     <>
       <CommonLayout pageTitle={"Example"} />
-      <Card>
+      <Card className="mt-5">
         <CardHeader>
-          <CardTitle></CardTitle>
+          <CardTitle>Example</CardTitle>
+          <CardDescription>
+            A comprehensive form example showcasing various input components
+            including checkboxes, date pickers, text fields, multi-selects,
+            radio buttons, and a rich text editor. Switch between preview and
+            code to explore both functionality and implementation.
+          </CardDescription>
+          Command: npx shadcn@latest add form
         </CardHeader>
         <CardContent>
-          <Card className="mt-5">
-            <CardHeader>
-              <CardTitle>Example</CardTitle>
-              <CardDescription>
-                A comprehensive form example showcasing various input components
-                including checkboxes, date pickers, text fields, multi-selects,
-                radio buttons, and a rich text editor. Switch between preview
-                and code to explore both functionality and implementation.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="preview">
-                <TabsList>
-                  <TabsTrigger value="preview">Preview</TabsTrigger>
-                  <TabsTrigger value="code">Code</TabsTrigger>
-                </TabsList>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+            </TabsList>
 
-                <TabsContent value="preview">
-                  <FormProvider {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                      <div className="grid grid-cols-2 gap-4">
-                        <CheckBox
-                          name="Discrepancy"
-                          label="Discrepancy"
-                          className=" !text-base"
-                          form={form}
-                          items={[
-                            {
-                              value: "true",
-                              label: "True",
-                            },
-                            {
-                              value: "false",
-                              label: "False",
-                            },
-                          ]}
-                        />
-                        <DatePicker
-                          form={form}
-                          name="date"
-                          label="Date Picker"
-                          placeHolder="Select Date"
-                        />
-                        <FormDatePickerRange
-                          form={form}
-                          name="dateRange"
-                          label="Date Range Picker"
-                        />
-                        <FormInputField
-                          form={form}
-                          name="name"
-                          label="Name"
-                          placeholder="Enter Name"
-                        />
-                        <MultiSelectInput
-                          options={options}
-                          form={form}
-                          name="select"
-                          label="Select"
-                        />
-                        <RadioButton
-                          name="radio"
-                          form={form}
-                          label="Rdio Button"
-                          options={[
-                            { label: "Reject", value: "rejected" },
-                            { label: "Approve", value: "approved" },
-                          ]}
-                        />
-                        <SelectInput
-                          options={options}
-                          form={form}
-                          name="select"
-                          label="Select"
-                          placeholder="Select an option"
-                        />
-                        <FormTextArea
-                          form={form}
-                          name="textArea"
-                          placeholder="Enter Address"
-                          label="Text Area"
-                        />
-                      </div>
-                      <TextEditor
-                        name="content"
-                        form={form}
-                        label="Post Content"
-                        placeholder="Start typing..."
-                      />
-                      <Button
-                        type="submit"
-                        className="mt-14 text-white bg-red-800"
-                      >
-                        Submit
-                      </Button>
-                    </form>
-                  </FormProvider>
-                </TabsContent>
-                <TabsContent value="code">
-                  <div className="relative">
-                    <Button
-                      onClick={handleCopy}
-                      className="absolute right-2 top-2 z-10 "
-                      variant="outline"
-                      size="sm"
-                    >
-                      {copied ? "Copied!" : "Copy"}
-                    </Button>
-                    <SyntaxHighlighter language="javascript">
-                      {exampleForm}
-                    </SyntaxHighlighter>
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <div className="grid grid-cols-2 gap-4">
+                    <CheckBox
+                      name="Discrepancy"
+                      label="Discrepancy"
+                      className=" !text-base"
+                      form={form}
+                      items={[
+                        {
+                          value: "true",
+                          label: "True",
+                        },
+                        {
+                          value: "false",
+                          label: "False",
+                        },
+                      ]}
+                    />
+                    <DatePicker
+                      form={form}
+                      name="date"
+                      label="Date Picker"
+                      placeHolder="Select Date"
+                    />
+                    <FormDatePickerRange
+                      form={form}
+                      name="dateRange"
+                      label="Date Range Picker"
+                    />
+                    <FormInputField
+                      form={form}
+                      name="name"
+                      label="Name"
+                      placeholder="Enter Name"
+                    />
+                    <MultiSelectInput
+                      options={options}
+                      form={form}
+                      name="select"
+                      label="Select"
+                    />
+                    <RadioButton
+                      name="radio"
+                      form={form}
+                      label="Radio Button"
+                      options={[
+                        { label: "Reject", value: "rejected" },
+                        { label: "Approve", value: "approved" },
+                      ]}
+                    />
+                    <SelectInput
+                      options={options}
+                      form={form}
+                      name="select"
+                      label="Select"
+                      placeholder="Select an option"
+                    />
+                    <FormTextArea
+                      form={form}
+                      name="textArea"
+                      placeholder="Enter Address"
+                      label="Text Area"
+                    />
                   </div>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                  <TextEditor
+                    name="content"
+                    form={form}
+                    label="Post Content"
+                    placeholder="Start typing..."
+                  />
+                  <Button type="submit" className="mt-14 text-white bg-red-800">
+                    Submit
+                  </Button>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10 "
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {exampleForm}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
     </>

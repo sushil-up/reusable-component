@@ -8,16 +8,9 @@ import React from "react";
 const TextField = () => {
   return (
     <>
-    <CommonLayout pageTitle={"Input"} />
-      <Card>
-        <CardHeader>
-          <CardTitle>Input Fields</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <TextFieldInput />
-          <TextAreaInput />
-        </CardContent>
-      </Card>
+      <CommonLayout pageTitle={"Input"} />
+      <TextFieldInput />
+      <TextAreaInput />
     </>
   );
 };

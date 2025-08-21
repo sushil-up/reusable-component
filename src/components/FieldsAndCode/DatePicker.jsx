@@ -48,6 +48,7 @@ const DatePickerField = () => {
           <CardDescription>
             Displays a form datepicker or a component that looks like a datepicker.
           </CardDescription>
+          Command:  npx shadcn@latest add calendar
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

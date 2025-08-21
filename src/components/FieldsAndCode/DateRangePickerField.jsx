@@ -49,6 +49,7 @@ const DateRangePickerField = () => {
             Displays a form daterangepicker or a component that looks like a
             daterangepicker.
           </CardDescription>
+          Command:  npx shadcn@latest add calendar
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

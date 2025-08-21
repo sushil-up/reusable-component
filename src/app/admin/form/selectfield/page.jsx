@@ -9,15 +9,8 @@ const Select = () => {
   return (
     <>
     <CommonLayout pageTitle={"Select "} />
-      <Card>
-        <CardHeader>
-          <CardTitle>Select Fields</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <SelectField />
-          <MultiSelectField />
-        </CardContent>
-      </Card>
+    <SelectField />
+    <MultiSelectField />
     </>
   );
 };

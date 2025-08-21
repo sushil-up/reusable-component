@@ -19,7 +19,7 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl
-              className={`!flex-nowrap !flex-row !mb-5 gap-4 radio-collunm`}
+              className={`!flex-nowrap !flex-row  gap-4 radio-collunm`}
             >
               <RadioGroup
                 onValueChange={(value) => {
