@@ -64,6 +64,10 @@ const data = {
           title: "Text Editor",
           url: routesUrl.textEditor,
         },
+        {
+          title: "Example",
+          url: routesUrl.example,
+        },
       ],
     },
   ],
@@ -73,7 +77,7 @@ export function AppSidebar({ ...props }) {
   const { state } = useSidebar();
   return (
     <>
-      <Sidebar collapsible="icon" {...props} >
+      <Sidebar collapsible="icon" {...props}>
         <SidebarContent
           // className={$theme-bg}
           className={
@@ -85,9 +89,9 @@ export function AppSidebar({ ...props }) {
           <div className="main-logo border-b[#0A0F15] bg[#0A0F15] flex h-20 items-center justify-center">
             <Link href="/dashboard" className="flex-shrink-0">
               {state === "collapsed" ? (
-                <img src="/images/collapse-logo.png" alt="Logo small" />
+                <img src="/ace-logo.png" alt="Logo small"className="w-12" />
               ) : (
-                <img src="/acewebxlogo.png" className="w-56" alt="Logo full" />
+                <img src="/acewebxlogo.png" className="w-48 mt-5" alt="Logo full" />
               )}
             </Link>
             {/* <p className={cn(

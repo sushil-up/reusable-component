@@ -740,9 +740,80 @@ const TextEditor = ({
 
 export default TextEditor;
 `;
-export const textEditorComponent = `  <TextEditor
+export const textEditorComponent = `  
+                    <TextEditor
                         name="content"
                         form={form}
                         label="Post Content"
                         placeholder="Start typing..."
                       />`;
+
+export const exampleForm = `    
+                      <CheckBox
+                          name="Discrepancy"
+                          label="Discrepancy"
+                          className=" !text-base"
+                          form={form}
+                          items={[
+                            {
+                              value: "true",
+                              label: "True",
+                            },
+                            {
+                              value: "false",
+                              label: "False",
+                            },
+                          ]}
+                        />
+                        <DatePicker
+                          form={form}
+                          name="date"
+                          label="Date Picker"
+                          placeHolder="Select Date"
+                        />
+                        <FormDatePickerRange
+                          form={form}
+                          name="dateRange"
+                          label="Date Range Picker"
+                        />
+                        <FormInputField
+                          form={form}
+                          name="name"
+                          label="Name"
+                          placeholder="Enter Name"
+                        />
+                        <MultiSelectInput
+                          options={options}
+                          form={form}
+                          name="select"
+                          label="Select"
+                        />
+                        <RadioButton
+                          name="radio"
+                          form={form}
+                          label="Rdio Button"
+                          options={[
+                            { label: "Reject", value: "rejected" },
+                            { label: "Approve", value: "approved" },
+                          ]}
+                        />
+                        <SelectInput
+                          options={options}
+                          form={form}
+                          name="select"
+                          label="Select"
+                          placeholder="Select an option"
+                        />
+                        <FormTextArea
+                          form={form}
+                          name="textArea"
+                          placeholder="Enter Address"
+                          label="Text Area"
+                        />
+                         <TextEditor
+                        name="content"
+                        form={form}
+                        label="Post Content"
+                        placeholder="Start typing..."
+                      />
+                        `;

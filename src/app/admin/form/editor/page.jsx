@@ -20,14 +20,14 @@ import { toast } from "sonner";
 const TextEditorRich = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
- const [codeCopi, setCodeCopy] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(textEditorCode);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
- const handleComponentCode = async () => {
+  const handleComponentCode = async () => {
     await navigator.clipboard.writeText(textEditorComponent);
     setCodeCopy(true);
     toast.success("Copied to clipboard!");
@@ -75,7 +75,10 @@ const TextEditorRich = () => {
                         label="Post Content"
                         placeholder="Start typing..."
                       />
-                      <Button type="submit" className="mt-14 text-white bg-red-800" >
+                      <Button
+                        type="submit"
+                        className="mt-14 text-white bg-red-800"
+                      >
                         Submit
                       </Button>
                     </form>
@@ -96,19 +99,19 @@ const TextEditorRich = () => {
                     </SyntaxHighlighter>
                   </div>
                 </TabsContent>
-                   <TabsContent value="import">
-                                  <Button
-                                    onClick={handleComponentCode}
-                                    className="absolute right-2 top-2 z-10"
-                                    variant="outline"
-                                    size="sm"
-                                  >
-                                    {codeCopi ? "Copied!" : "Copy"}
-                                  </Button>
-                                  <SyntaxHighlighter language="javascript">
-                                      {textEditorComponent}
-                                    </SyntaxHighlighter>
-                                </TabsContent>
+                <TabsContent value="import">
+                  <Button
+                    onClick={handleComponentCode}
+                    className="absolute right-2 top-2 z-10"
+                    variant="outline"
+                    size="sm"
+                  >
+                    {codeCopi ? "Copied!" : "Copy"}
+                  </Button>
+                  <SyntaxHighlighter language="javascript">
+                    {textEditorComponent}
+                  </SyntaxHighlighter>
+                </TabsContent>
               </Tabs>
             </CardContent>
           </Card>

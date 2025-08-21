@@ -70,6 +70,7 @@ const page = () => {
                 options={options}
                 form={form}
                 name="select"
+                placeholder='Select an option'
                 label="Select"
               />
               <DatePicker
