@@ -32,7 +32,7 @@ function SiteHeader() {
             
             </div>
             <div className="ml-2 text-sm text-gray-500">
-            version: 2.10.0
+            version 2.10.0
               </div>
           </div>
           <div className="hidden md:flex space-x-4">
