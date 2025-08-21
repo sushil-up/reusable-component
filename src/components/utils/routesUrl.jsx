@@ -7,5 +7,5 @@ export const routesUrl = {
   radioButton: "/admin/form/radiobutton",
   checkBox: "/admin/form/checkbox",
   textEditor:'/admin/form/editor',
-  example:'/admin/example',
+  example:'/admin/form/example',
 };
