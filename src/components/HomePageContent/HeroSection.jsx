@@ -32,32 +32,32 @@ export function HeroSection() {
           </div>
         </h2>
         <div className="relative w-full max-w-lg mx-auto">
-  <div className="relative rounded-lg overflow-hidden border border-slate-800 bg-slate-950">
-    {/* Copy Button */}
-    <Button
-      onClick={handleCommandCode}
-      className="absolute right-2 top-2 z-10 cursor-pointer"
-      variant="secondary"
-      size="sm"
-    >
-      {copied ? "Copied!" : "Copy"}
-    </Button>
+          <div className="relative rounded-lg overflow-hidden border border-slate-800 bg-slate-950">
+            {/* Copy Button */}
+            <Button
+              onClick={handleCommandCode}
+              className="absolute right-2 top-2 z-10 cursor-pointer"
+              variant="secondary"
+              size="sm"
+            >
+              {copied ? "Copied!" : "Copy"}
+            </Button>
 
-    {/* Code Block */}
-    <SyntaxHighlighter
-      language="bash"
-      style={atomOneDark}
-      customStyle={{
-        margin: 0,
-        padding: "1rem 1.5rem",
-        fontSize: "0.9rem",
-        background: "transparent",
-      }}
-    >
-      {commandInstall}
-    </SyntaxHighlighter>
-  </div>
-</div>
+            {/* Code Block */}
+            <SyntaxHighlighter
+              language="bash"
+              style={atomOneDark}
+              customStyle={{
+                margin: 0,
+                padding: "1rem 1.5rem",
+                fontSize: "0.9rem",
+                background: "transparent",
+              }}
+            >
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 w-[60%] mx-auto py-2">
           <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
