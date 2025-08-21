@@ -123,7 +123,7 @@ export default function LoginPage() {
                       )}
                     </Button>
 
-                    <p className="text-center text-sm text-gray-500">
+                    {/* <p className="text-center text-sm text-gray-500">
                       Don’t have an account?{" "}
                       <a
                         href="/register"
@@ -131,7 +131,7 @@ export default function LoginPage() {
                       >
                         Sign Up
                       </a>
-                    </p>
+                    </p> */}
                   </CardFooter>
                 </form>
               </Form>
