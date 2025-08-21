@@ -87,7 +87,7 @@ export function AppSidebar({ ...props }) {
           }
         >
           <div className="main-logo border-b[#0A0F15] bg[#0A0F15] flex h-20 items-center justify-center">
-            <Link href="/dashboard" className="flex-shrink-0">
+            <Link href="/admin" className="flex-shrink-0">
               {state === "collapsed" ? (
                 <img src="/ace-logo.png" alt="Logo small"className="w-12" />
               ) : (
