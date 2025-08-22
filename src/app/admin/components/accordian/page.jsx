@@ -2,17 +2,26 @@
 
 import CommonLayout from "@/components/CommanLayout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import AccordianComponent, { AccordianCode } from "@/components/UiComponents/Accordian";
+import AccordianComponent, {
+  AccordianCode,
+  AccordianComponentCall,
+} from "@/components/UiComponents/Accordian";
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { toast } from "sonner";
 
-
 const Accordian = () => {
   const [copied, setCopied] = useState(false);
   const [checkboxCodeInstall, setCheckboxCodeInstall] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
   const commandInstall = "npx shadcn@latest add accordion";
   const handleCopy = async () => {
     await navigator.clipboard.writeText(AccordianCode);
@@ -26,10 +35,16 @@ const Accordian = () => {
     toast.success("Copied to clipboard!");
     setTimeout(() => setCheckboxCodeInstall(false), 2000);
   };
+  const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(AccordianComponentCall);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCodeCopy(false), 2000);
+  };
   const accordionItems = [
     {
       title: "Product Information",
-      className:"flex flex-col gap-4 text-balance",
+      className: "flex flex-col gap-4 text-balance",
       content: (
         <>
           <p>
@@ -46,7 +61,7 @@ const Accordian = () => {
     },
     {
       title: "Shipping Details",
-      className:"flex flex-col gap-4 text-balance",
+      className: "flex flex-col gap-4 text-balance",
       content: (
         <>
           <p>
@@ -63,7 +78,7 @@ const Accordian = () => {
     },
     {
       title: "Return Policy",
-      className:"flex flex-col gap-4 text-balance ",
+      className: "flex flex-col gap-4 text-balance ",
       content: (
         <>
           <p>
@@ -111,9 +126,14 @@ const Accordian = () => {
             <TabsList>
               <TabsTrigger value="preview">Preview</TabsTrigger>
               <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="component">Component Call</TabsTrigger>
             </TabsList>
             <TabsContent value="preview">
-              <AccordianComponent items={accordionItems} type="single" className="w-full"/>
+              <AccordianComponent
+                items={accordionItems}
+                type="single"
+                className="w-full"
+              />
             </TabsContent>
             <TabsContent value="code">
               <div className="relative">
@@ -127,6 +147,21 @@ const Accordian = () => {
                 </Button>
                 <SyntaxHighlighter language="javascript">
                   {AccordianCode}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="component">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {AccordianComponentCall}
                 </SyntaxHighlighter>
               </div>
             </TabsContent>

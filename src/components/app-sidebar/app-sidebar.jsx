@@ -81,8 +81,8 @@ const data = {
           url: routesUrl.accordian,
         },
         {
-          title: "Select Field",
-          url: routesUrl.selectField,
+          title: "Card",
+          url: routesUrl.card,
         },
         {
           title: "Date Picker",

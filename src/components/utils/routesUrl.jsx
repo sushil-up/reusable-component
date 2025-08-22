@@ -8,5 +8,6 @@ export const routesUrl = {
   checkBox: "/admin/form/checkbox",
   textEditor:'/admin/form/editor',
   example:'/admin/form/example',
-  accordian:'/admin/components/accordian'
+  accordian:'/admin/components/accordian',
+  card:'/admin/components/card'
 };
