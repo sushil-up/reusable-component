@@ -10,9 +10,7 @@ import {
 import { FileInput, HomeIcon, List } from "lucide-react";
 import Link from "next/link";
 import NavMain from "./nav-main";
-import { NavUser } from "./nav-user";
 import { routesUrl } from "../utils/routesUrl";
-import { title } from "process";
 
 const data = {
   home: {
