@@ -89,7 +89,7 @@ const CheckBoxField = () => {
                   <CheckBox
                     name="Discrepancy"
                     label="Discrepancy"
-                    className=" !text-base"
+                    className=" !text-base flex gap-4"
                     form={form}
                     items={[
                       {

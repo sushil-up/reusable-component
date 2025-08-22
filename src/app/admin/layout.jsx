@@ -41,7 +41,7 @@ export default async function AdminLayout({ children }) {
                 </div>
               </div>
             </header>
-            <div className='mx-5 my-5 flex flex-1 flex-col gap-2 rounded-sm bg-white pt-0'>
+            <div className='p-6 flex flex-1 flex-col rounded-sm bg-[#ececec]'>
               <Toaster />
               {children}
             </div>

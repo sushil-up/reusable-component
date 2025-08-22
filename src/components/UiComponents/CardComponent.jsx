@@ -13,7 +13,7 @@ const CardComponent = ({ item, className }) => {
   return (
     <Card className={className || ""}>
       <CardHeader>
-        <CardTitle>{item?.title || ""}</CardTitle>
+        <CardTitle className={item?.tittleclass}>{item?.title || ""}</CardTitle>
         <CardDescription>{item?.description || ""}</CardDescription>
         {item?.extra || ""}
         {item?.action && <CardAction>{item.action || ""}</CardAction>}

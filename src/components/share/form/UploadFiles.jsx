@@ -69,7 +69,7 @@ import {
                     />
                   </div>
                   <label htmlFor={name}>
-                    <span className='cursor-pointer rounded bg-red-500 px-4 py-2 text-sm text-white hover:bg-red-400'>
+                    <span className='cursor-pointer rounded bg-[#b82025] px-4 py-2 text-sm text-white hover:bg-red-400'>
                       Browse
                     </span>
                   </label>

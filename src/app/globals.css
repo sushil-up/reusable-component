@@ -133,84 +133,137 @@ body .main-menu-item[data-state="open"] {
 }
 
 /* theme-css-classes */
+
+
+
+/* ================================
+   CSS Variables
+================================ */
+:root {
+  /* Colors */
+  --primary-color: #b82025;
+  --primary-hover-color: #ca0303;
+  --secondary-color: #605457;
+  --text-color: #231f20;
+  --sidebar-primary-color: #b52123;
+  --submenu-dot-color: #898989;
+  --submenu-line-color: #fffeff;
+  --white: #ffffff;
+  --black-shadow: #0000001f;
+
+  /* Spacing & Sizes */
+  --button-padding-y: 19px;
+  --button-padding-x: 14px;
+  --button-font-size: 14px;
+  --button-min-width: 110px;
+  --button-radius: 4px;
+
+  /* Shadows */
+  --button-shadow: 0px 0px 0px var(--secondary-color);
+  --custom-shadow: 0px 8px 20px var(--black-shadow);
+
+  /* Layout */
+  --header-margin-x: -2000px;
+  --header-padding-x: 2000px;
+  --submenu-dot-size: 8px;
+  --submenu-line-width: 4px;
+  --submenu-line-height: 24px;
+}
+
+/* ================================
+   Theme CSS Classes
+================================ */
+
 .site-button {
-  border: 1px solid #b82025;
-  border-radius: 4px;
-  padding: 19px 14px;
-  font-size: 14px;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--button-radius);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  font-size: var(--button-font-size);
   font-weight: 500;
-  box-shadow: 0px 0px 0px #605457;
-  background: #b82025;
-  color: #fff;
-  min-width: 110px;
+  box-shadow: var(--button-shadow);
+  background: var(--primary-color);
+  color: var(--white);
+  min-width: var(--button-min-width);
 }
 
 .custom-box-shadow {
-  box-shadow: 0px 8px 20px #0000001f !important;
+  box-shadow: var(--custom-shadow) !important;
 }
+
 .headerSection {
-  margin: 0 -2000px;
-  padding: 0 2000px;
+  margin: 0 var(--header-margin-x);
+  padding: 0 var(--header-padding-x);
   position: fixed;
   top: 0;
   z-index: 9;
 }
+
 .drop-menu {
   margin-top: 4rem;
   margin-left: 100%;
 }
+
 .text-sidebar-primary {
-  color: #b52123 !important;
+  color: var(--sidebar-primary-color) !important;
 }
+
 .sub-menu-item li a:hover {
   background: transparent;
 }
 
 .sub-menu-item li:before {
-  height: 8px;
-  width: 8px;
+  height: var(--submenu-dot-size);
+  width: var(--submenu-dot-size);
   position: absolute;
   left: -13px;
-  background: #898989;
+  background: var(--submenu-dot-color);
   content: '';
   top: 12px;
   z-index: 9;
   border-radius: 100%;
   pointer-events: none;
 }
+
 .sub-menu-item li:last-child:after {
   content: '';
-  height: 24px;
-  width: 4px;
+  height: var(--submenu-line-height);
+  width: var(--submenu-line-width);
   position: absolute;
   bottom: -8px;
-  background: #fffeff;
+  background: var(--submenu-line-color);
   z-index: 9;
   left: -11px;
 }
+
 a:hover {
-  color: #ca0303 !important;
+  color: var(--primary-hover-color) !important;
 }
+
 .text-color {
-  color: #231f20 !important;
+  color: var(--text-color) !important;
 }
+
 .main-menu-item:hover {
-  background-color: #ca0303 !important;
-  color: #231f20 !important;
+  background-color: var(--primary-hover-color) !important;
+  color: var(--text-color) !important;
 }
 .main-menu-item:hover .menu-icon {
-  background-color: #605457 !important;
-  color: #fff !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--white) !important;
 }
 
 .main-menu-item[data-state='open'] {
-  background-color: #ca0303 !important;
-  color: #231f20 !important;
+  background-color: var(--primary-hover-color) !important;
+  color: var(--text-color) !important;
 }
 .main-menu-item[data-state='open'] .menu-icon {
-  background-color: #605457 !important;
-  color: #fff !important;
+  background-color: var(--secondary-color) !important;
+  color: var(--white) !important;
 }
+
+
+
+
 /* global.css (or your Tailwind config layer) */
 .form-control-height {
   @apply h-12 rounded-md border border-gray-300 shadow-none;

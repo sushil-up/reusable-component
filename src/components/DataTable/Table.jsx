@@ -32,15 +32,15 @@ export function TableList({
   })
   return (
     <>
-      <div className='rounded-6 border-color-grey custom-tabels border bg-white'>
+      <div className='rounded-6 border-color-grey custom-tabels border bg-red text-white'>
         <Table>
-          <TableHeader className='theme-bg-light-rgba'>
+          <TableHeader>
             { table?.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup?.id}>
                 {headerGroup?.headers.map(header => (
                   <TableHead
                     key={header?.id}
-                    className='border-color-grey text-dark-color theme-bg-light-rgba px-3 py-4 text-sm'
+                    className='border-color-grey text-dark-color px-3 py-4 text-sm'
                   >
                     {header?.isPlaceholder
                       ? null
@@ -54,7 +54,7 @@ export function TableList({
             ))}
           </TableHeader>
 
-          <TableBody>
+          <TableBody className='bg-white text-black'>
             {loading ? (
               <TableRow>
                 <TableCell

@@ -16,8 +16,8 @@ import { toast } from "sonner";
 const CardCode = () => {
     const CardItems = {
         title: "Login to your account",
+        tittleClass:"text-[#b82025] text-xl mb-1 ",
         description: "Enter your email below to login to your account",
-        action: <Button variant="link">Sign Up</Button>,
         content: (
             <form>
                 <div className="flex flex-col gap-6">
@@ -47,12 +47,13 @@ const CardCode = () => {
         ),
         footer: (
             <>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full bg-[#b82025]">
                     Login
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full bg-grey-300">
                     Login with Google
                 </Button>
+                <Button variant="link">Sign Up</Button>
             </>
         ),
         footerClass: "flex-col gap-2",

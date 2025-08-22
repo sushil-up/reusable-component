@@ -15,7 +15,7 @@ const AccordianComponent = ({ items, type, className }) => {
     >
       {items.map((item, index) => (
         <AccordionItem key={index} value={`item-${index + 1}`}>
-          <AccordionTrigger>{item.title}</AccordionTrigger>
+          <AccordionTrigger className={item?.titleClass}>{item?.title}</AccordionTrigger>
           <AccordionContent className={item?.className}>
             {item.content}
           </AccordionContent>

@@ -44,7 +44,8 @@ const Accordian = () => {
   const accordionItems = [
     {
       title: "Product Information",
-      className: "flex flex-col gap-4 text-balance",
+      titleClass:'bg-[#F0F0F0] rounded-none border-none p-3',
+      className: "flex flex-col gap-4 text-balance bg-[#F0F0F0] p-3 mb-3",  
       content: (
         <>
           <p>
@@ -61,7 +62,8 @@ const Accordian = () => {
     },
     {
       title: "Shipping Details",
-      className: "flex flex-col gap-4 text-balance",
+      titleClass:'bg-[#F0F0F0] rounded-none border-none p-3',
+      className: "flex flex-col gap-4 text-balance bg-[#F0F0F0] p-3 mb-3",  
       content: (
         <>
           <p>
@@ -78,7 +80,8 @@ const Accordian = () => {
     },
     {
       title: "Return Policy",
-      className: "flex flex-col gap-4 text-balance ",
+      titleClass:'bg-[#F0F0F0] rounded-none border-none p-3',
+      className: "flex flex-col gap-4 text-balance bg-[#F0F0F0] p-3 mb-3",    
       content: (
         <>
           <p>
