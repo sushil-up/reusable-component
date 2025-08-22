@@ -49,13 +49,13 @@ import {
                   type='file'
                   multiple
                   disabled={disable}
-                  className='hidden'
+                  className='hidden bg-white'
                   onChange={handleFileChange}
                 />
   
                 {/* Fake input showing filenames + custom Browse button */}
                 <div className='flex items-center gap-2'>
-                  <div className='flex-1'>
+                  <div className='w-[85%]'>
                     <input
                       type='text'
                       readOnly
@@ -65,11 +65,11 @@ import {
                           : ''
                       }
                       placeholder='No file chosen'
-                      className='form-control-height w-full cursor-default rounded border px-3 py-2 text-sm text-gray-600 bg-gray-100'
+                      className='form-control-height bg-white w-full cursor-default rounded border px-3 py-2 text-sm text-gray-600 bg-gray-100'
                     />
                   </div>
                   <label htmlFor={name}>
-                    <span className='cursor-pointer rounded bg-[#b82025] px-4 py-2 text-sm text-white hover:bg-red-400'>
+                    <span className='cursor-pointer rounded bg-[#b82025] px-6 py-3 text-sm text-white hover:bg-primary/90'>
                       Browse
                     </span>
                   </label>

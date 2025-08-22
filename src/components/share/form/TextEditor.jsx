@@ -40,7 +40,8 @@ const TextEditor = ({
           defaultValue=""
           render={({ field }) => (
             <ReactQuill
-              theme="snow"
+              // theme="snow"
+              className="!bg-white [&_.ql-container]:!bg-white [&_.ql-editor]:!bg-white [&_.ql-toolbar]:!bg-white"
               value={field.value || ""}
               onChange={field.onChange}
               placeholder={placeholder}

@@ -17,10 +17,8 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
         name={name}
         render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>{label}</FormLabel>
-            <FormControl
-              className={`!flex-nowrap !flex-row  gap-4 radio-collunm`}
-            >
+            {label && <FormLabel>{label}</FormLabel>}
+            <FormControl className="!flex-nowrap !flex-row gap-4 radio-collunm">
               <RadioGroup
                 onValueChange={(value) => {
                   field.onChange(value);
@@ -32,12 +30,20 @@ const RadioButton = ({ name, form, label, options, onChange }) => {
                 {options?.map((option) => (
                   <FormItem
                     key={option.value}
-                    className="flex items-center space-x-3 space-y-0 !mt-0 radio-btn"
+                    className="flex items-center space-y-0 !mt-0 radio-btn"
                   >
                     <FormControl>
-                      <RadioGroupItem value={option.value} />
+                      <RadioGroupItem
+                        value={option.value}
+                        className="
+                        border border-black 
+                        data-[state=checked]:border-[#b82025]
+                        data-[state=checked]:bg-[#b82025] 
+                        data-[state=checked]:text-[#b82025]
+                      "
+                      />
                     </FormControl>
-                    <FormLabel className="font-normal ">
+                    <FormLabel className="font-normal">
                       {option.label}
                     </FormLabel>
                   </FormItem>

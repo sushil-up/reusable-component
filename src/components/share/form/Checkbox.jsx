@@ -25,9 +25,14 @@ const CheckBox = ({ name, form, items = [], label, className }) => {
                 key={item.id || item.value}
                 className='flex flex-row items-center space-x-3 space-y-0'
               >
-                <label className='flex cursor-pointer flex-row items-center space-x-3'>
+                <label className='flex cursor-pointer flex-row items-center space-x-2 '>
                   <FormControl>
                     <Checkbox
+                      className="
+                        border border-black
+                        data-[state=checked]:border-[#b82025]
+                        data-[state=checked]:bg-[#b82025]
+                      "
                       checked={
                         Array.isArray(field.value) &&
                         field.value.includes(item.value)

@@ -49,7 +49,7 @@ export const TablePagination = ({
       ) : (
         <PaginationItem key={item}>
           <PaginationLink
-            className={`!rounded-[52px] bg-[#fffce9] text-black ${
+            className={`!rounded-[52px] bg-[#dedede] text-black ${
               item === page ? 'bg-red text-white' : ''
             }`}
             isActive={item === page}

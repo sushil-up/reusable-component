@@ -27,7 +27,7 @@ const FormTextArea = ({
                         <FormLabel>{label}</FormLabel>
                         <FormControl>
                             <Textarea
-                             className={`form-control-height ${className}`}
+                             className={`form-control-height bg-white ${className}`}
                                 {...field}
                                 placeholder={placeholder}
                                 disabled={disabled}

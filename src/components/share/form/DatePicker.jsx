@@ -36,7 +36,7 @@ const DatePicker = ({ name, label, className, placeHolder }) => {
                 <Button
                   variant="outline"
                   id="date"
-                  className="form-control-height justify-between font-normal"
+                  className="form-control-height justify-between font-normal outline-none focus:ring-0"
                 >
                   {date
                     ? date.toLocaleDateString()

@@ -56,7 +56,7 @@ const page = () => {
   return (
     <>
     <CommonLayout pageTitle={"Add Form"} />
-      <div>
+      <div className="mt-3">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmitData)}>
             <div className="grid grid-cols-2 gap-4">
@@ -79,15 +79,7 @@ const page = () => {
                 label="Date Picker"
                 placeHolder="Select Date"
               />
-              <RadioButton
-                name="radio"
-                form={form}
-                label="Radio Button"
-                options={[
-                  { label: "Reject", value: "rejected" },
-                  { label: "Approve", value: "approved" },
-                ]}
-              />
+              
               <FormTextArea
                 form={form}
                 name="textArea"
@@ -125,6 +117,15 @@ const page = () => {
                     value: "false",
                     label: "False",
                   },
+                ]}
+              />
+              <RadioButton
+                name="radio"
+                form={form}
+                label="Radio Button"
+                options={[
+                  { label: "Reject", value: "rejected" },
+                  { label: "Approve", value: "approved" },
                 ]}
               />
             </div>
