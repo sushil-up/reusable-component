@@ -9,5 +9,6 @@ export const routesUrl = {
   textEditor:'/admin/form/editor',
   example:'/admin/form/example',
   accordian:'/admin/components/accordian',
-  card:'/admin/components/card'
+  card:'/admin/components/card',
+  tabs:'/admin/components/tab'
 };

@@ -85,24 +85,8 @@ const data = {
           url: routesUrl.card,
         },
         {
-          title: "Date Picker",
-          url: routesUrl.datePicker,
-        },
-        {
-          title: "Radio Button",
-          url: routesUrl.radioButton,
-        },
-        {
-          title: "CheckBox",
-          url: routesUrl.checkBox,
-        },
-        {
-          title: "Text Editor",
-          url: routesUrl.textEditor,
-        },
-        {
-          title: "Example",
-          url: routesUrl.example,
+          title: "Tabs",
+          url: routesUrl.tabs,
         },
       ],
     },
