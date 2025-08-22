@@ -70,6 +70,42 @@ const data = {
         },
       ],
     },
+    {
+      title: "Components",
+      url: routesUrl.accordian,
+      isActive: true,
+      icon: FileInput,
+      items: [
+        {
+          title: "Accordian",
+          url: routesUrl.accordian,
+        },
+        {
+          title: "Select Field",
+          url: routesUrl.selectField,
+        },
+        {
+          title: "Date Picker",
+          url: routesUrl.datePicker,
+        },
+        {
+          title: "Radio Button",
+          url: routesUrl.radioButton,
+        },
+        {
+          title: "CheckBox",
+          url: routesUrl.checkBox,
+        },
+        {
+          title: "Text Editor",
+          url: routesUrl.textEditor,
+        },
+        {
+          title: "Example",
+          url: routesUrl.example,
+        },
+      ],
+    },
   ],
 };
 
