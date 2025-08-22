@@ -6,9 +6,10 @@ export const routesUrl = {
   datePicker: "/admin/form/datepicker",
   radioButton: "/admin/form/radiobutton",
   checkBox: "/admin/form/checkbox",
-  textEditor:'/admin/form/editor',
-  example:'/admin/form/example',
-  accordian:'/admin/components/accordian',
-  card:'/admin/components/card',
-  tabs:'/admin/components/tab'
+  textEditor: "/admin/form/editor",
+  example: "/admin/form/example",
+  accordian: "/admin/components/accordian",
+  card: "/admin/components/card",
+  tabs: "/admin/components/tab",
+  paginationOrTable: "/admin/components/pagination-table",
 };

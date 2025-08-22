@@ -86,6 +86,10 @@ const data = {
           title: "Tabs",
           url: routesUrl.tabs,
         },
+        {
+          title: "Table",
+          url: routesUrl.paginationOrTable,
+        },
       ],
     },
   ],
@@ -107,9 +111,13 @@ export function AppSidebar({ ...props }) {
           <div className="main-logo border-b[#0A0F15] bg[#0A0F15] flex h-20 items-center justify-center">
             <Link href="/admin" className="flex-shrink-0">
               {state === "collapsed" ? (
-                <img src="/ace-logo.png" alt="Logo small"className="w-12" />
+                <img src="/ace-logo.png" alt="Logo small" className="w-12" />
               ) : (
-                <img src="/acewebxlogo.png" className="w-48 mt-5" alt="Logo full" />
+                <img
+                  src="/acewebxlogo.png"
+                  className="w-48 mt-5"
+                  alt="Logo full"
+                />
               )}
             </Link>
             {/* <p className={cn(

@@ -6,7 +6,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import { SelectInput } from "@/components/share/form/SelectInput";
 import { LengthData, order, ShortBy } from "@/components/StaticValue";
 import DeleteDialogBox from "@/components/Modal/Delete";
-import PageLayout from "@/components/PageTitle";
 import CommonLayout from "@/components/CommanLayout";
 import { useRouter } from "next/navigation";
 
@@ -133,3 +132,7 @@ router.push(`/admin/users/${row?.original?.id}`)
 };
 
 export default AllUsers;
+
+
+
+
