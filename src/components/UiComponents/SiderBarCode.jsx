@@ -1,11 +1,7 @@
+export const layoutCode = `
 import { Toaster } from "sonner";
 import { AppSidebar } from "@/components/app-sidebar/app-sidebar";
-import {
-  SidebarFooter,
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarFooter, SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import DashboardFooter from "@/components/DashBoardFooter";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -19,22 +15,23 @@ export const metadata = {
 };
 
 export default async function AdminLayout({ children }) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions)
 
   if (!session?.user) {
-    redirect("/");
+    redirect('/')
   }
   return (
     <>
       <div>
         <SidebarProvider>
           <AppSidebar />
-          <SidebarInset className="!bg-white">
-            <header className="border-color-grey flex h-20 shrink-0 items-center justify-between gap-2 border-b shadow-[0_0_15px_-10px_black] transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-              <div className="flex justify-between w-full ">
-                <div className="flex items-center gap-2 px-4">
-                  <SidebarTrigger className="-ml-1" />
-                  <Separator orientation="vertical" className="mr-2 h-4" />
+          <SidebarInset className='!bg-white'>
+            <header className='border-color-grey flex h-20 shrink-0 items-center justify-between gap-2 border-b 
+            shadow-[0_0_15px_-10px_black] transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12'>
+              <div className='flex justify-between w-full '>
+                <div className='flex items-center gap-2 px-4'>
+                  <SidebarTrigger className='-ml-1' />
+                  <Separator orientation='vertical' className='mr-2 h-4' />
                   <AppBreadcrumb />
                 </div>
                 <div>
@@ -44,7 +41,7 @@ export default async function AdminLayout({ children }) {
                 </div>
               </div>
             </header>
-            <div className="p-6 flex flex-1 flex-col rounded-sm bg-[#ececec]">
+            <div className='p-6 flex flex-1 flex-col rounded-sm bg-[#ececec]'>
               <Toaster />
               {children}
             </div>
@@ -53,5 +50,8 @@ export default async function AdminLayout({ children }) {
         </SidebarProvider>
       </div>
     </>
+
   );
 }
+
+`

@@ -12,4 +12,9 @@ export const routesUrl = {
   card: "/admin/components/card",
   tabs: "/admin/components/tab",
   paginationOrTable: "/admin/components/pagination-table",
+  toolTip: '/admin/components/tooltip',
+  popeover: '/admin/components/popover',
+  dialog: '/admin/components/dialog',
+  drawer: '/admin/components/drawer',
+  sideBar: '/admin/components/sideBar'
 };

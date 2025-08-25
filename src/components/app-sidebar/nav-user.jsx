@@ -1,30 +1,29 @@
-'use client'
-import { BadgeCheck, Bell, ChevronsUpDown, LogOutIcon } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+"use client";
+import { BadgeCheck, Bell, ChevronsUpDown, LogOutIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar
-} from '@/components/ui/sidebar'
-import { signOut, useSession } from 'next-auth/react'
+  useSidebar,
+} from "@/components/ui/sidebar";
+import { signOut, useSession } from "next-auth/react";
 
 export function NavUser() {
-  const { isMobile } = useSidebar()
-  const { data: session } = useSession()
+  const { isMobile } = useSidebar();
+  const { data: session } = useSession();
 
-  if (!session) return
+  if (!session) return;
 
-  const { user } = session
+  const { user } = session;
 
   return (
     <SidebarMenu>
@@ -32,52 +31,33 @@ export function NavUser() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
-              size='lg'
-              className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className='h-8 w-8 rounded-lg'>
+              <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src="/images/user-avatar-male-5.png"
-                  alt={user?.firstName + ' ' + user?.lastName}
+                  src="/iconicon.png"
+                  alt={user?.firstName + " " + user?.lastName}
                 />
-                <AvatarFallback className='rounded-lg'>
-                  {user?.firstName + ' ' + user?.lastName}
+                <AvatarFallback className="rounded-lg">
+                  {user?.firstName + " " + user?.lastName}
                 </AvatarFallback>
               </Avatar>
-              <div className='grid flex-1 text-left text-sm leading-tight'>
-                <span className='truncate font-semibold'>
-                  {user?.firstName + ' ' + user?.lastName}
+              <div className="grid flex-1 text-left text-sm leading-tight">
+                <span className="truncate font-semibold">
+                  {user?.firstName + " " + user?.lastName}
                 </span>
-                <span className='truncate text-xs'>{user?.email}</span>
+                <span className="truncate text-xs">{user?.email}</span>
               </div>
-              <ChevronsUpDown className='ml-auto size-4' />
+              <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg drop-menu'
-            side={isMobile ? 'bottom' : 'right'}
-            align='end'
+            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg drop-menu"
+            side={isMobile ? "bottom" : "right"}
+            align="end"
             sideOffset={4}
           >
-            {/* <DropdownMenuLabel className='p-0 font-normal'>
-              <div className='flex items-center gap-2 px-1 py-1.5 text-left text-sm'>
-                <Avatar className='h-8 w-8 rounded-lg'>
-                  <AvatarImage
-                    src="/images/user-avatar-male-5.png"
-                    alt={user?.firstName + ' ' + user?.lastName}
-                  />
-                  <AvatarFallback className='rounded-lg'>
-                    {user?.firstName + ' ' + user?.lastName}
-                  </AvatarFallback>
-                </Avatar>
-                <div className='grid flex-1 text-left text-sm leading-tight'>
-                  <span className='truncate font-semibold'>
-                    {user?.firstName + ' ' + user?.lastName}
-                  </span>
-                  <span className='truncate text-xs'>{user?.email}</span>
-                </div>
-              </div>
-            </DropdownMenuLabel> */}
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
@@ -91,15 +71,103 @@ export function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              className='cursor-pointer text-destructive'
+              className="cursor-pointer text-destructive"
               onClick={() => signOut()}
             >
-              <LogOutIcon className='h-4 w-4' />
+              <LogOutIcon className="h-4 w-4" />
               <span>Log Out</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }
+
+
+export const navUserCode = `"use client";
+import { BadgeCheck, Bell, ChevronsUpDown, LogOutIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "@/components/ui/sidebar";
+import { signOut, useSession } from "next-auth/react";
+
+export function NavUser() {
+  const { isMobile } = useSidebar();
+  const { data: session } = useSession();
+
+  if (!session) return;
+
+  const { user } = session;
+
+  return (
+    <SidebarMenu>
+      <SidebarMenuItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+            >
+              <Avatar className="h-8 w-8 rounded-lg">
+                <AvatarImage
+                  src="/iconicon.png"
+                  alt={user?.firstName + " " + user?.lastName}
+                />
+                <AvatarFallback className="rounded-lg">
+                  {user?.firstName + " " + user?.lastName}
+                </AvatarFallback>
+              </Avatar>
+              <div className="grid flex-1 text-left text-sm leading-tight">
+                <span className="truncate font-semibold">
+                  {user?.firstName + " " + user?.lastName}
+                </span>
+                <span className="truncate text-xs">{user?.email}</span>
+              </div>
+              <ChevronsUpDown className="ml-auto size-4" />
+            </SidebarMenuButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg drop-menu"
+            side={isMobile ? "bottom" : "right"}
+            align="end"
+            sideOffset={4}
+          >
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <BadgeCheck />
+                Account
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Bell />
+                Notifications
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem
+              className="cursor-pointer text-destructive"
+              onClick={() => signOut()}
+            >
+              <LogOutIcon className="h-4 w-4" />
+              <span>Log Out</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </SidebarMenuItem>
+    </SidebarMenu>
+  );
+}
+`
