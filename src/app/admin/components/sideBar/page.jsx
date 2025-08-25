@@ -131,14 +131,19 @@ const SideBarDemo = () => {
         },
     ];
 
-    // 🧾 Card Data
     const mainCard = {
         description:
             "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
         content: <TabsDemo item={tabsItem} />,
         extra: (
             <>
+                <div className="mb-4 text-sm text-muted-foreground text-red-800">
+                    We have not included a preview of the sidebar, as it is already used
+                    throughout our platform.
+                </div>
+
                 <div className="text-sm font-semibold mb-2">Install Command</div>
+
                 <div className="relative items-center">
                     <Button
                         onClick={handleCopyCommand}
@@ -148,6 +153,7 @@ const SideBarDemo = () => {
                     >
                         {copiedCommand ? "Copied!" : "Copy"}
                     </Button>
+
                     <SyntaxHighlighter language="bash">
                         {commandInstall}
                     </SyntaxHighlighter>

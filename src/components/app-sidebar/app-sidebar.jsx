@@ -110,6 +110,10 @@ const data = {
           title: "Side Bar",
           url: routesUrl.sideBar,
         },
+        {
+          title: 'Sooner',
+          url: routesUrl.toaster
+        }
       ],
     },
   ],

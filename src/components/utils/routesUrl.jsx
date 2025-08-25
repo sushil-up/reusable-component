@@ -16,5 +16,6 @@ export const routesUrl = {
   popeover: '/admin/components/popover',
   dialog: '/admin/components/dialog',
   drawer: '/admin/components/drawer',
-  sideBar: '/admin/components/sideBar'
+  sideBar: '/admin/components/sideBar',
+  toaster: '/admin/components/toaster'
 };
