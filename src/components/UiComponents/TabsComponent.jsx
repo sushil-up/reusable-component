@@ -4,15 +4,15 @@ const TabsDemo = ({ item }) => {
   return (
     <Tabs defaultValue={item.length > 0 ? item[0].value : ""}>
       <TabsList>
-        {item.map(({ triggerTitle, value }) => (
-          <TabsTrigger key={value} value={value}>
+        {item.map(({ triggerTitle, value }, index) => (
+          <TabsTrigger key={`${value}-${index}`} value={value}>
             {triggerTitle}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      {item.map(({ value, content }) => (
-        <TabsContent key={value} value={value}>
+      {item.map(({ value, content }, index) => (
+        <TabsContent key={`${value}-${index}`} value={value}>
           {content}
         </TabsContent>
       ))}

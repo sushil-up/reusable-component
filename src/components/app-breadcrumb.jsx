@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from "next/navigation"
-import { useContext, useEffect, useMemo, useState } from "react"
+import React, { useContext, useEffect, useMemo, useState } from "react"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb"
 
 
@@ -42,43 +42,36 @@ export function AppBreadcrumb() {
       }
     })
   }, [pathname])
-  
+
   // Now the early return is safe
   if (pathName === '/login' || !mounted || breadcrumbs.length === 0) {
     return null
   }
-  
+
 
 
   return (
-   <>
-    <Breadcrumb>
-      <BreadcrumbList className='flex-wrap'>
-        {breadcrumbs.map((breadcrumb, index) => (
-          <BreadcrumbItem
-            key={breadcrumb.path}
-            className={`flex-none ${index === 0 ? 'hidden md:flex' : 'flex'}`}
-          >
-            {breadcrumb.isLast ? (
-              <BreadcrumbPage className='truncate'>
-                {pathname.includes('/workorders/edit')
-                  ? breadcrumbData
-                  : breadcrumb.text}
-                {pathname === '/dashboard/contract/edit' && `#SC-${breadcrumbData}`}
-              </BreadcrumbPage>
-            ) : (
-              <>
+    <>
+      <Breadcrumb>
+        <BreadcrumbList className='flex-wrap'>
+          {breadcrumbs.map((breadcrumb, index) => (
+            <React.Fragment key={breadcrumb.path}>
+              <BreadcrumbItem
+                className={`flex-none ${index === 0 ? 'hidden md:flex' : 'flex'}`}
+              >
                 <BreadcrumbLink href={breadcrumb.path} className='truncate'>
                   {breadcrumb.text}
                 </BreadcrumbLink>
+              </BreadcrumbItem>
+              {index < breadcrumbs.length - 1 && (
                 <BreadcrumbSeparator className='mx-2' />
-              </>
-            )}
-          </BreadcrumbItem>
-        ))}
-      </BreadcrumbList>
-    </Breadcrumb>
-   
-   </>
+              )}
+            </React.Fragment>
+          ))}
+        </BreadcrumbList>
+      </Breadcrumb>
+
+
+    </>
   )
 }

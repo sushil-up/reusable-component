@@ -38,11 +38,9 @@ const page = () => {
     };
     const sheetItem = {
         sheetTrigger: (
-            <>
-                <Button variant="outline" onClick={() => setIsOpen(!isOpen)}>
-                    Open
-                </Button>
-            </>
+            <Button variant="outline" onClick={() => setIsOpen(!isOpen)}>
+                Open
+            </Button>
         ),
         SheetTitle: <>Edit profile</>,
         sheetDescription: (
@@ -163,10 +161,12 @@ const page = () => {
             </>
         ),
     };
-    return <>
-        <CommonLayout pageTitle={"Dialog"} />
-        <CardComponent item={mainCard} />
-    </>;
+    return (
+        <>
+            <CommonLayout pageTitle={"Dialog"} />
+            <CardComponent item={mainCard} />
+        </>
+    );
 };
 
 export default page;
