@@ -17,5 +17,6 @@ export const routesUrl = {
   dialog: '/admin/components/dialog',
   drawer: '/admin/components/drawer',
   sideBar: '/admin/components/sideBar',
-  toaster: '/admin/components/toaster'
+  toaster: '/admin/components/toaster',
+  sheet: '/admin/components/sheet'
 };
