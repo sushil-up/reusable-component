@@ -1,7 +1,6 @@
 "use client";
-import { textEditorCode, textEditorComponent } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
-import TextEditor from "@/components/share/form/TextEditor";
+import TextEditor, { textEditorCode, textEditorComponent } from "@/components/share/form/TextEditor";
 import { Button } from "@/components/ui/button";
 import {
   Card,

@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import {
   Card,
@@ -12,8 +13,7 @@ import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
-import DatePicker from "../share/form/DatePicker";
-import { datePickerCode, datePickerComponent } from "../CodeString";
+import DatePicker, { datePickerCode, datePickerComponent } from "../share/form/DatePicker";
 
 const DatePickerField = () => {
   const form = useForm();

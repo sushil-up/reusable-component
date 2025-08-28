@@ -111,13 +111,13 @@ const data = {
           url: routesUrl.sideBar,
         },
         {
-          title: 'Sooner',
-          url: routesUrl.toaster
+          title: "Sooner",
+          url: routesUrl.toaster,
         },
         {
-          title: 'Sheet',
-          url: routesUrl.sheet
-        }
+          title: "Sheet",
+          url: routesUrl.sheet,
+        },
       ],
     },
   ],

@@ -9,8 +9,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { FormProvider, useForm } from "react-hook-form";
 import { useState } from "react";
-import FormTextArea from "../share/form/TextArea";
-import { codeStringTextArea, textAreaImport } from "../CodeString";
+import FormTextArea, { codeStringTextArea, textAreaImport } from "../share/form/TextArea";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";

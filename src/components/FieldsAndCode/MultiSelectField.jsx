@@ -13,22 +13,22 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { options } from "../StaticValue";
-import MultiSelectInput from "../share/form/MultiSelectInput";
-import { codeMultipleComponent, codeMultiSelect } from "../CodeString";
+import MultiSelectInput, { codeMultipleComponent, codeMultiSelect } from "../share/form/MultiSelectInput";
 
 const MultiSelectField = () => {
   const form = useForm();
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
   const [multiSelectCodeInstall, setMultiSelectCodeInstall] = useState(false);
-  const commandInstall = `npx shadcn@latest add select`;
-  
+  const commandInstall = `npx shadcn@latest add select
+  npx shadcn@latest add popover`;
+
   const handleCommmandCode = async () => {
     await navigator.clipboard.writeText(commandInstall);
     setMultiSelectCodeInstall(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setMultiSelectCodeInstall(false), 2000);
-  }
+  };
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeMultiSelect);
     setCopied(true);
@@ -73,7 +73,6 @@ const MultiSelectField = () => {
               {commandInstall}
             </SyntaxHighlighter>
           </div>
-          
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="preview">

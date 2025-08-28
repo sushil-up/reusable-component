@@ -9,11 +9,10 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { FormProvider, useForm } from "react-hook-form";
 import { useState } from "react";
-import { codeStringComponent, codeStringSelect } from "../CodeString";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
-import { SelectInput } from "../share/form/SelectInput";
+import { codeStringComponent, codeStringSelect, SelectInput } from "../share/form/SelectInput";
 import { options } from "../StaticValue";
 
 const SelectField = () => {
@@ -21,7 +20,8 @@ const SelectField = () => {
   const [copied, setCopied] = useState(false);
   const [codeCopi, setCodeCopy] = useState(false);
   const [multiSelectCodeInstall, setMultiSelectCodeInstall] = useState(false);
-  const commandInstall = `npx shadcn@latest add select`;
+  const commandInstall = `npx shadcn@latest add select
+  npx shadcn@latest add popover`;
 
   const handleCommmandCode = async () => {
     await navigator.clipboard.writeText(commandInstall);

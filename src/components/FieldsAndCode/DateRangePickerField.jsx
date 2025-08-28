@@ -12,8 +12,7 @@ import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
-import FormDatePickerRange from "../share/form/FormDateRangePicker";
-import { dateRangeComponent, dateRangePickerCode } from "../CodeString";
+import FormDatePickerRange, { dateRangeComponent, dateRangePickerCode } from "../share/form/FormDateRangePicker";
 
 const DateRangePickerField = () => {
   const form = useForm();

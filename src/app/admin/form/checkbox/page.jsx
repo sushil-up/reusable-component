@@ -1,7 +1,6 @@
 "use client";
-import { checkboxCode, checkboxImport } from "@/components/CodeString";
 import CommonLayout from "@/components/CommanLayout";
-import CheckBox from "@/components/share/form/Checkbox";
+import CheckBox, { checkboxCode, checkboxImport } from "@/components/share/form/Checkbox";
 import { Button } from "@/components/ui/button";
 import {
   Card,

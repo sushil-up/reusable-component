@@ -1,9 +1,5 @@
 "use client";
-import {
-  codeStringInput,
-  codeStringInputComponent,
-} from "@/components/CodeString";
-import FormInputField from "@/components/share/form/FormInputField";
+import FormInputField, { codeStringInput, codeStringInputComponent } from "@/components/share/form/FormInputField";
 import { Button } from "@/components/ui/button";
 import {
   Card,
